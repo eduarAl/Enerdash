@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Enerdash</string>
+    <string name="informe_Consumo">Informe de Consumo</string>
+    <string name="elec_vent">Ventilador de pie.</string>
+    <string name="elec_refri">Refrigerador.</string>
+    <string name="elec_lavadora">Lavadora.</string>
+    <string name="elec_licuadora">Licuadora.</string>
+    <string name="elec_laptop">Laptop.</string>
+    <string name="elec_microondas">Microondas.</string>
+    <string name="elec_equipo">Equipo de sonido.</string>
 </resources>
