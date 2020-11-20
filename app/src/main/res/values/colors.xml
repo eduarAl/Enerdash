@@ -9,4 +9,5 @@
     <color name="secondary_text">#757575</color>
     <color name="icons">#212121</color>
     <color name="divider">#BDBDBD</color>
+    <color name="Background_RecycleView">#9A8E8B8B</color>
 </resources>

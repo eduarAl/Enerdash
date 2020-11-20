@@ -15,4 +15,5 @@
     <dimen name="logo">350dp</dimen>
     <dimen name="girl_w">350dp</dimen>
     <dimen name="girl_h">500dp</dimen>
+    <dimen name="margin_rv">10dp</dimen>
 </resources>
