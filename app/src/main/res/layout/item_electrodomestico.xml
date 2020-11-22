@@ -34,9 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                tools:text="@string/name_electo"
+                tools:text="@string/elec_microondas"
                 android:textColor="@color/primary_text"
-                android:layout_marginStart="10dp"/>
+                android:layout_marginLeft="10dp" />
         </RelativeLayout>
 
     </LinearLayout>
