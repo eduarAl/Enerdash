@@ -19,13 +19,21 @@ public class ElectroViewHelper {
             case ElectroImgSource.img.LICUADORA:
                 return R.drawable.licuadora;
             case ElectroImgSource.img.REFRI:
-                return R.drawable.refri2;
+                return R.drawable.refri;
             case ElectroImgSource.img.TV:
                 return R.drawable.tv;
             case ElectroImgSource.img.VENTILADOR:
                 return R.drawable.ventilador;
+            case ElectroImgSource.img.EQUIPO:
+                return R.drawable.equipo;
+            case ElectroImgSource.img.CONSOLA:
+                return R.drawable.ps3;
+            case ElectroImgSource.img.SERCADOR:
+                return R.drawable.secador_de_pelo;
+            case ElectroImgSource.img.PLANCHA:
+                return R.drawable.plancha;
             default:
-                return R.drawable.logo_enerdash2;
+                return R.drawable.enerdash_logo2;
         }
     }
 
