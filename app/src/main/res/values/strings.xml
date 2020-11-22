@@ -8,6 +8,8 @@
     <string name="elec_laptop">Laptop.</string>
     <string name="elec_microondas">Microondas.</string>
     <string name="elec_equipo">Equipo de sonido.</string>
+    <string name="descripcion_Img">MicroondasDes</string>
+    <string name="name_electo">Microondas</string>
     <string name="logo">Logo de la App</string>
     <string name="empecemos">¡Empecemos!</string>
     <string name="email">Email</string>
