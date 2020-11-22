@@ -4,62 +4,62 @@
       "Nombre": "Parlantes",
       "DescripcionImagen": "Parlante con multimedia",
       "Imagen": "parlante",
-      "ConsumoxWatts": 0.03
+      "Consumo": 0.03
     },
     {
 
-      "Nombre": "Ordenador",
+      "Nombre": "Laptop",
       "DescripcionImagen": "Laptop color azul",
       "Imagen": "laptop",
-      "ConsumoxWatts": 0.25
+      "Consumo": 0.25
     },
     {
       "Nombre": "Lavadora",
       "DescripcionImagen": "Lavadora negra marca samsung",
-      "Imagen": "lavadoraNegra",
-      "ConsumoxWatts": 0.19
+      "Imagen": "lavadora",
+      "Consumo": 0.19
     },
     {
       "Nombre": "Licuadora",
       "DescripcionImagen": "Licuadora roja",
       "Imagen": "licuadora",
-      "ConsumoxWatts": 0.42
+      "Consumo": 0.42
     },
     {
       "Nombre": "Ventilador",
       "DescripcionImagen": "Ventilador negro ",
       "Imagen": "ventilador",
-      "ConsumoxWatts": 0.10
+      "Consumo": 0.10
     },
     {
       "Nombre": "Refrigeradora",
       "DescripcionImagen": "Refrigeradora gris",
       "Imagen": "refri",
-      "ConsumoxWatts": 0.21
+      "Consumo": 0.21
     },
     {
       "Nombre": "Televisión",
       "DescripcionImagen": "Televisión Negra",
       "Imagen": "tv",
-      "ConsumoxWatts": 0.08
+      "Consumo": 0.08
     },
     {
       "Nombre": "Horno Microondas",
       "DescripcionImagen" : "Horno blanco",
       "Imagen": "horno",
-      "ConsumoxWatts" : 0.125
+      "Consumo": 0.125
     },
     {
       "Nombre": "Consola PS3",
       "DescripcionImagen" : "Consola PS3 blanca",
       "Imagen": "ps3",
-      "ConsumoxWatts" : 380
+      "Consumo": 380
     },
     {
       "Nombre": "Secadora de cabello",
       "DescripcionImagen" : "Secadora de cabello azul",
       "Imagen": "secadora",
-      "ConsumoxWatts" : 390
+      "Consumo": 390
     }
   ]
 }

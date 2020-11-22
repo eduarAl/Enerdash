@@ -16,4 +16,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="@dimen/btn_acceder_w"
+        android:layout_height="@dimen/btn_acceder_h"
+        android:text="Hola"
+        android:layout_marginTop="24dp"
+        style="@style/Buttons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
