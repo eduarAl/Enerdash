@@ -18,7 +18,7 @@
         <item name="android:layout_height">@dimen/img_electro_h</item>
     </style>
 
-    <style name="Buttons">
+    <style name="Buttons" parent="Widget.MaterialComponents.Button">
         <item name="android:background">@color/primary_dark</item>
         <item name="android:textColor">@color/primary_text</item>
         <item name="android:textStyle">bold</item>

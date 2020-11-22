@@ -8,4 +8,14 @@
     <string name="elec_laptop">Laptop.</string>
     <string name="elec_microondas">Microondas.</string>
     <string name="elec_equipo">Equipo de sonido.</string>
+    <string name="descripcion_Img">MicroondasDes</string>
+    <string name="name_electo">Microondas</string>
+    <string name="logo">Logo de la App</string>
+    <string name="empecemos">¡Empecemos!</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="email_sample">mariogonzales87@gmail.com</string>
+    <string name="pw_sample">AvesM@rinas30*</string>
+    <string name="accceder">Accceder</string>
+    <string name="ayuda">Ayuda</string>
 </resources>
