@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="h,3:2"
-        android:src="@drawable/equipo"
+        android:src="@drawable/logo_enerdash1"
         android:scaleType="centerInside"
         android:contentDescription="@string/logo"
         app:layout_constraintStart_toStartOf="parent"
