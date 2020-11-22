@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setup() {
-
         Button btn = findViewById(R.id.btn1);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

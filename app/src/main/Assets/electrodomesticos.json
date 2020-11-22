@@ -1,65 +1,71 @@
 {
   "data": [
     {
-      "Nombre": "Parlantes",
-      "DescripcionImagen": "Parlante con multimedia",
+      "Nombre": "Equipo de sonido",
+      "DescripcionImagen": "Equipo de sonido estéreo",
       "Imagen": "parlante",
-      "Consumo": 0.03
+      "ConsumoxWatts": 120
     },
     {
 
-      "Nombre": "Laptop",
+      "Nombre": "Ordenador",
       "DescripcionImagen": "Laptop color azul",
       "Imagen": "laptop",
-      "Consumo": 0.25
+      "ConsumoxWatts": 65
     },
     {
       "Nombre": "Lavadora",
       "DescripcionImagen": "Lavadora negra marca samsung",
-      "Imagen": "lavadora",
-      "Consumo": 0.19
+      "Imagen": "lavadoraNegra",
+      "ConsumoxWatts": 350
     },
     {
       "Nombre": "Licuadora",
       "DescripcionImagen": "Licuadora roja",
       "Imagen": "licuadora",
-      "Consumo": 0.42
+      "ConsumoxWatts": 400
     },
     {
       "Nombre": "Ventilador",
       "DescripcionImagen": "Ventilador negro ",
       "Imagen": "ventilador",
-      "Consumo": 0.10
+      "ConsumoxWatts": 40
     },
     {
       "Nombre": "Refrigeradora",
       "DescripcionImagen": "Refrigeradora gris",
       "Imagen": "refri",
-      "Consumo": 0.21
+      "ConsumoxWatts": 150
     },
     {
       "Nombre": "Televisión",
       "DescripcionImagen": "Televisión Negra",
       "Imagen": "tv",
-      "Consumo": 0.08
+      "ConsumoxWatts": 100
     },
     {
       "Nombre": "Horno Microondas",
       "DescripcionImagen" : "Horno blanco",
       "Imagen": "horno",
-      "Consumo": 0.125
+      "ConsumoxWatts" : 1000
     },
     {
       "Nombre": "Consola PS3",
-      "DescripcionImagen" : "Consola PS3 blanca",
+      "DescripcionImagen": "Consola PS3 blanca",
       "Imagen": "ps3",
-      "Consumo": 380
+      "ConsumoxWatts" : 194
     },
     {
       "Nombre": "Secadora de cabello",
-      "DescripcionImagen" : "Secadora de cabello azul",
+      "DescripcionImagen": "Secadora de cabello rosada",
       "Imagen": "secadora",
-      "Consumo": 390
+      "ConsumoxWatts": 700
+    },
+    {
+      "Nombre": "Plancha",
+      "DescripcionImagen": "Plancha azul con negro",
+      "Imagen": "pllancha",
+      "ConsumoxWatts": 1200
     }
   ]
 }
