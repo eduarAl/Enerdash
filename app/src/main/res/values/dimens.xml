@@ -4,6 +4,8 @@
     <dimen name="float_action_btn_mini">40dp</dimen>
     <dimen name="btn_inf_gen_w">170dp</dimen>
     <dimen name="btn_inf_gen_h">30dp</dimen>
+    <dimen name="btn_acceder_w">150dp</dimen>
+    <dimen name="btn_acceder_h">50dp</dimen>
     <dimen name="btn_empezar_w">170dp</dimen>
     <dimen name="btn_empezar_h">40dp</dimen>
     <dimen name="btn_tips_w">80dp</dimen>
@@ -13,6 +15,7 @@
     <dimen name="img_electro_w">70dp</dimen>
     <dimen name="img_electro_h">40dp</dimen>
     <dimen name="logo">350dp</dimen>
+    <dimen name="LetsStar_text">40sp</dimen>
     <dimen name="girl_w">350dp</dimen>
     <dimen name="girl_h">500dp</dimen>
     <dimen name="margin_rv">10dp</dimen>

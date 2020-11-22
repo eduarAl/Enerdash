@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LogInActivity">
+
+    <ImageView
+        android:id="@+id/iv_elec"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="h,3:2"
+        android:src="@drawable/equipo"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/empecemos"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/accent"
+        android:textSize="@dimen/LetsStar_text"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@id/iv_elec"
+        app:layout_constraintRight_toRightOf="@id/iv_elec"
+        app:layout_constraintTop_toBottomOf="@id/iv_elec"
+        android:gravity="center_horizontal" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_user"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/email"
+        app:helperText="@string/email_sample"
+        app:startIconDrawable="@drawable/ic_baseline_person"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:inputType="textEmailAddress"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_pw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/password"
+        app:helperText="@string/pw_sample"
+        app:startIconDrawable="@drawable/ic_baseline_lock"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintStart_toStartOf="@id/til_user"
+        app:layout_constraintEnd_toEndOf="@id/til_user"
+        app:layout_constraintTop_toBottomOf="@id/til_user">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:inputType="textPassword"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_acces"
+        android:layout_width="@dimen/btn_acceder_w"
+        android:layout_height="@dimen/btn_acceder_h"
+        android:text="@string/accceder"
+        android:layout_marginTop="24dp"
+        style="@style/Buttons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_pw"
+        />
+
+    <Button
+        android:id="@+id/btn_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ayuda"
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="32dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:textColor="@color/secondary_text"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
