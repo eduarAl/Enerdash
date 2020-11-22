@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class AppliancesFileSource {
+public class AppliancesFileSource implements ElectroImgSource{
     private final Gson parser;
     private final Context mContext;
     private static final String ELECTRO_FILE_NAME = "electrodomesticos.json";

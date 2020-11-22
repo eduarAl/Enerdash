@@ -11,7 +11,7 @@ public class ElectroRepository {
     private final ElectroImgSource mSource;
 
     public ElectroRepository(Context context) {
-        mSource = (ElectroImgSource) new AppliancesFileSource(context);
+        mSource = new AppliancesFileSource(context);
     }
 
     public List<ElectroModel> getAll() {
