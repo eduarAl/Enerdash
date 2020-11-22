@@ -22,6 +22,7 @@ public class AppliancesFileSource implements ElectroImgSource{
         parser = new Gson();
     }
 
+    @Override
     public List<ElectroModel> getAll(int count) {
         String json = FileHelper.getJsonFromAssets(mContext, ELECTRO_FILE_NAME);
         ListResult listResult = parser.fromJson(json, ListResult.class);
