@@ -26,8 +26,8 @@ public class StartActivity extends Activity  {
             } else {
                 intent = new Intent(getBaseContext(), LogInActivity.class);
             }
-            startActivity(intent);
-            finish(); //finalizar esta actividad
         }
+        startActivity(intent);
+        finish(); //finalizar esta actividad
     }
 }

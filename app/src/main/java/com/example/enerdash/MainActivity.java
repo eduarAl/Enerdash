@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void navigateToCatalogo() {
+
         Intent intent = new Intent(this, CatalogoActivity.class);
         startActivity(intent);
     }
