@@ -17,4 +17,7 @@
     <string name="pw_sample">AvesM@rinas30*</string>
     <string name="accceder">Accceder</string>
     <string name="ayuda">Ayuda</string>
+    <string name="bienvenido">¡Bienvenido!</string>
+    <string name="pregunta_retótica_desc">¿Cansado de los altos costos que refleja tu factura eléctrica?</string>
+    <string name="desc">¡No te preocupés más! \n Enerdash será tu fiel compañero para conocer y administrar el consumo energético de todos tus aparatos electrónicos. Todo de manera sencilla, rápida, intuituva y práctica. \n\n ¿Empezamos?</string>
 </resources>
