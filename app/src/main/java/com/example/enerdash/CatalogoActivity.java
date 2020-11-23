@@ -27,11 +27,10 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
 
     private static final String TAG = MainActivity.class.getName();
 
-
-    private ElectroRepository mPointsRepository;
+    private ElectroRepository mElectroRepository;
     private List<ElectroModel> mModelList;
-    private ElectroAdapter mPointsAdapter;
-   private ViewGroup rootView;
+    private ElectroAdapter mElectrosAdapter;
+    private ViewGroup rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     }
 
     private void setup() {
-        mPointsRepository = new ElectroRepository(getBaseContext());
+        mElectroRepository = new ElectroRepository(getBaseContext());
         mModelList = new ArrayList<>();
 
         Intent startIntent = getIntent();
@@ -60,13 +59,13 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
             return;
         }
         rootView = findViewById(R.id.ly_List);
-        setupPointListView();
+        setupApplianceListView();
     }
 
-    private void setupPointListView() {
+    private void setupApplianceListView() {
         RecyclerView rvPoints = findViewById(R.id.rvCatalogo);
-        mPointsAdapter = new ElectroAdapter(mModelList, this);
-        rvPoints.setAdapter(mPointsAdapter);
+        mElectrosAdapter = new ElectroAdapter(mModelList, this);
+        rvPoints.setAdapter(mElectrosAdapter);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getBaseContext(),2);
         rvPoints.setLayoutManager(layoutManager);
         rvPoints.setHasFixedSize(true);
@@ -77,12 +76,12 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
             Log.d(TAG, "Ya existen valores en la lista");
             return;
         }
-        if(mPointsRepository == null) {
+        if(mElectroRepository == null) {
             Log.e(TAG, "mPointsRepository no debería ser null");
             return;
         }
-        mModelList = mPointsRepository.getAll();
-        mPointsAdapter.updateList(mModelList);
+        mModelList = mElectroRepository.getAll();
+        mElectrosAdapter.updateList(mModelList);
     }
 
     @Override

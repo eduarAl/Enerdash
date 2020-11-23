@@ -9,7 +9,7 @@ public interface ElectroImgSource {
         public static final String EQUIPO = "parlante";
         public static final String HORNO = "horno";
         public static final String LAP = "laptop";
-        public static final String LAVADORA = "lavadora";
+        public static final String LAVADORA = "lavadoraNegra";
         public static final String  LICUADORA= "licuadora";
         public static final String REFRI = "refri";
         public static final String TV = "tv";

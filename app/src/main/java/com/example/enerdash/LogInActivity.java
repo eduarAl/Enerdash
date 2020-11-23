@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.enerdash.Data.UserConfig;
+import com.example.enerdash.Modelos.UserModel;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.security.InvalidParameterException;
@@ -17,6 +19,8 @@ import java.security.InvalidParameterException;
 public class LogInActivity extends AppCompatActivity {
     TextInputLayout tilEmail, tilPw;
     EditText etEmail, etPw;
+
+    UserModel userModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,36 +40,44 @@ public class LogInActivity extends AppCompatActivity {
         btnAcceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToMain();
+                signIn();
             }
         });
     }
 
-    private void navigateToMain() {
+    private void signIn() {
         if(!validateFields()) {
             return;
         }
+        userModel = new UserModel(etEmail.getText().toString(), etPw.getText().toString());
+        saveUser(userModel);
+        navigateToMain(userModel);
+    }
 
-        if(etEmail.getText() == null || etPw.getText() == null)
-            throw new InvalidParameterException();
+    private void saveUser(UserModel user) {
+        UserConfig userConfig = new UserConfig(getApplicationContext());
+        userConfig.setUser(user);
+    }
 
+    private void navigateToMain(UserModel user) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra(MainActivity.EMAIL_KEY, etEmail.getText().toString());
-        intent.putExtra(MainActivity.PASSWORD_KEY, etPw.getText().toString());
+        //la proxima activity ahora será la primera en el back stack
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(MainActivity.EMAIL_KEY, user.getEmail());
+        intent.putExtra(MainActivity.PASSWORD_KEY, user.getPassword());
         startActivity(intent);
     }
 
     private boolean validateFields() {
         if(etEmail.getText() == null || TextUtils.isEmpty(etEmail.getText().toString())) {
-            showMessage("Favor ingresa tu email.)");
+            showMessage("Favor ingresa tu email.");
             return false;
         }
         if(etPw.getText() == null || TextUtils.isEmpty(etPw.getText().toString())) {
-            showMessage("Favor ingresa tu contraseña.)");
+            showMessage("Favor ingresa tu contraseña.");
             return false;
         }
-
-        showMessage("Todo correcto, ¡gracias!");
+        showMessage("¡Bienvenido!");
         return true;
     }
 

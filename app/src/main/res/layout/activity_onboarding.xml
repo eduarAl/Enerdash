@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OnboardingActivity">
+
+    <ImageView
+        android:id="@+id/iv_logo_enerdash"
+        android:layout_width="@dimen/logo"
+        android:layout_height="@dimen/logo"
+        android:src="@drawable/logo_enerdash1"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_bienvenida"
+        />
+
+    <TextView
+        android:id="@+id/tv_bienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bienvenido"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/LetsStar_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo_enerdash"
+        app:layout_constraintBottom_toTopOf="@id/tv_preg"
+        />
+
+    <TextView
+        android:id="@+id/tv_preg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pregunta_retótica_desc"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/desc_text"
+        android:layout_marginTop="@dimen/margin_Top"
+        android:layout_marginHorizontal="@dimen/margin_Horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_bienvenida"
+        />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="@dimen/desc_w"
+        android:layout_height="wrap_content"
+        android:text="@string/desc"
+        android:gravity="center_horizontal"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/margin_Top"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/desc_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_preg"
+        />
+
+    <Button
+        android:id="@+id/btn_empezar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_empezar"
+        style="@style/Buttons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
