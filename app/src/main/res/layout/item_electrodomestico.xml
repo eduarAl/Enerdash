@@ -22,7 +22,7 @@
             android:contentDescription="@string/descripcion_Img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/hornomicro" />
+            tools:src="@drawable/microondas" />
 
         <RelativeLayout
             android:layout_width="match_parent"

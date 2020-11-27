@@ -2,16 +2,24 @@ package com.example.enerdash.Modelos;
 
 public class ElectroModel {
 
+       private int Id;
        private String Nombre;
-       private String DescripcionImagen;
        private String Imagen;
-       private double Consumo;
+       private double Vatios;
 
-    public ElectroModel(String nombre, String descripcionImagen, String imagen, double consumo) {
+    public ElectroModel(int id, String nombre, String imagen, double vatios) {
+        Id = id;
         Nombre = nombre;
-        DescripcionImagen = descripcionImagen;
         Imagen = imagen;
-        Consumo = consumo;
+        Vatios = vatios;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 
     public String getNombre() {
@@ -22,14 +30,6 @@ public class ElectroModel {
         Nombre = nombre;
     }
 
-    public String getDescripcionImagen() {
-        return DescripcionImagen;
-    }
-
-    public void setDescripcionImagen(String descripcionImagen) {
-        DescripcionImagen = descripcionImagen;
-    }
-
     public String getImagen() {
         return Imagen;
     }
@@ -38,11 +38,11 @@ public class ElectroModel {
         Imagen = imagen;
     }
 
-    public double getConsumo() {
-        return Consumo;
+    public double getVatios() {
+        return Vatios;
     }
 
-    public void setConsumo(double consumo) {
-        Consumo = consumo;
+    public void setVatios(double vatios) {
+        Vatios = vatios;
     }
 }

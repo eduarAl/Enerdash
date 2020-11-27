@@ -1,71 +1,232 @@
 {
   "data": [
     {
+      "Id": 1,
       "Nombre": "Equipo de sonido",
-      "DescripcionImagen": "Equipo de sonido estéreo",
       "Imagen": "parlante",
-      "ConsumoxWatts": 120
+      "Vatios": 180
     },
     {
-
-      "Nombre": "Ordenador",
-      "DescripcionImagen": "Laptop color azul",
+      "Id": 2,
+      "Nombre": "Ordenador portátil",
       "Imagen": "laptop",
-      "ConsumoxWatts": 65
+      "Vatios": 300
     },
     {
+      "Id": 3,
       "Nombre": "Lavadora",
-      "DescripcionImagen": "Lavadora negra marca samsung",
       "Imagen": "lavadoraNegra",
-      "ConsumoxWatts": 350
+      "Vatios": 856.50
     },
     {
+      "Id": 4,
       "Nombre": "Licuadora",
-      "DescripcionImagen": "Licuadora roja",
       "Imagen": "licuadora",
-      "ConsumoxWatts": 400
+      "Vatios": 350
     },
     {
-      "Nombre": "Ventilador",
-      "DescripcionImagen": "Ventilador negro ",
-      "Imagen": "ventilador",
-      "ConsumoxWatts": 40
-    },
-    {
+      "Id": 5,
       "Nombre": "Refrigeradora",
-      "DescripcionImagen": "Refrigeradora gris",
       "Imagen": "refri",
-      "ConsumoxWatts": 150
+      "Vatios": 153
     },
     {
+      "Id": 6,
       "Nombre": "Televisión",
-      "DescripcionImagen": "Televisión Negra",
       "Imagen": "tv",
-      "ConsumoxWatts": 100
+      "Vatios": 180
     },
     {
-      "Nombre": "Horno Microondas",
-      "DescripcionImagen" : "Horno blanco",
-      "Imagen": "horno",
-      "ConsumoxWatts" : 1000
+      "Id": 7,
+      "Nombre": "Microondas",
+      "Imagen": "microondas",
+      "Vatios" : 949.60
     },
     {
+      "Id": 8,
       "Nombre": "Consola PS3",
-      "DescripcionImagen": "Consola PS3 blanca",
       "Imagen": "ps3",
-      "ConsumoxWatts" : 194
+      "Vatios" : 180
     },
     {
+      "Id": 9,
       "Nombre": "Secadora de cabello",
-      "DescripcionImagen": "Secadora de cabello rosada",
       "Imagen": "secadora",
-      "ConsumoxWatts": 700
+      "Vatios": 1287
     },
     {
+      "Id": 10,
       "Nombre": "Plancha",
-      "DescripcionImagen": "Plancha azul con negro",
       "Imagen": "plancha",
-      "ConsumoxWatts": 1200
+      "Vatios": 1200
+    },
+    {
+      "Id": 11,
+      "Nombre": "Computadora de Escritorio",
+      "Imagen": "escritorio",
+      "Vatios": 727
+    },
+    {
+      "Id": 12,
+      "Nombre": "Impresora y fotocopiadora",
+      "Imagen": "imp_fot",
+      "Vatios": 120
+    },
+    {
+      "Id": 13,
+      "Nombre": "Fotocopiadora de mesa",
+      "Imagen": "fot",
+      "Vatios": 1000
+    },
+    {
+      "Id": 14,
+      "Nombre": "Teléfono inalámbrico",
+      "Imagen": "inalambrico",
+      "Vatios": 50
+    },
+    {
+      "Id": 15,
+      "Nombre": "Lámapara de tubo",
+      "Imagen": "lamp_tubo",
+      "Vatios": 40
+    },
+    {
+      "Id": 16,
+      "Nombre": "Lámpara circular",
+      "Imagen": "lamp_cir",
+      "Vatios": 32
+    },
+    {
+      "Id": 17,
+      "Nombre": "Bombilla ahorrativa",
+      "Imagen": "bombilla",
+      "Vatios": 13
+    },
+    {
+      "Id": 18,
+      "Nombre": "Bujía",
+      "Imagen": "bujia",
+      "Vatios": 20
+    },
+    {
+      "Id": 19,
+      "Nombre": "Aire acondicionado de ventana",
+      "Imagen": "aire_ventana",
+      "Vatios": 706
+    },
+    {
+      "Id": 20,
+      "Nombre": "Aire acondicionado Split",
+      "Imagen": "aire_split",
+      "Vatios": 943.50
+    },
+    {
+      "Id": 21,
+      "Nombre": "Abanico de techo",
+      "Imagen": "abanico_techo",
+      "Vatios": 180
+    },
+    {
+      "Id": 22,
+      "Nombre": "Ventilador vertical",
+      "Imagen": "ventilador",
+      "Vatios": 10
+    },
+    {
+      "Id": 23,
+      "Nombre": "Minicomponente",
+      "Imagen": "minicomponente",
+      "Vatios": 50
+    },
+    {
+      "Id": 24,
+      "Nombre": "Radiograbadora",
+      "Imagen": "radio",
+      "Vatios": 57
+    },
+    {
+      "Id": 25,
+      "Nombre": "Teatro en casa",
+      "Imagen": "teatro",
+      "Vatios": 30
+    },
+    {
+      "Id": 26,
+      "Nombre": "DVD",
+      "Imagen": "dvd",
+      "Vatios": 26
+    },
+    {
+      "Id": 27,
+      "Nombre": "Extractor de jugos",
+      "Imagen": "extractor",
+      "Vatios": 300
+    },
+    {
+      "Id": 28,
+      "Nombre": "Arrocera",
+      "Imagen": "arrocera",
+      "Vatios": 1200
+    },
+    {
+      "Id": 29,
+      "Nombre": "Sandwichera",
+      "Imagen": "sandwichera",
+      "Vatios": 900
+    },
+    {
+      "Id": 30,
+      "Nombre": "Tostadora de pan",
+      "Imagen": "tos",
+      "Vatios": 1150
+    },
+    {
+      "Id": 31,
+      "Nombre": "Asador",
+      "Imagen": "asador",
+      "Vatios": 1725
+    },
+    {
+      "Id": 32,
+      "Nombre": "Horno",
+      "Imagen": "horno",
+      "Vatios": 1450
+    },
+    {
+      "Id": 33,
+      "Nombre": "Cafetera",
+      "Imagen": "cafetera",
+      "Vatios": 575
+    },
+    {
+      "Id": 34,
+      "Nombre": "Plancha para el cabello",
+      "Imagen": "plancha_cabello",
+      "Vatios": 75
+    },
+    {
+      "Id": 35,
+      "Nombre": "Máquina para cortar cabello",
+      "Imagen": "cortar_cabello",
+      "Vatios": 18
+    },
+    {
+      "Id": 36,
+      "Nombre": "Máquina para hacer hielo",
+      "Imagen": "maquina_hielo",
+      "Vatios": 600
+    },
+    {
+      "Id": 37,
+      "Nombre": "Rockonola",
+      "Imagen": "rockonola",
+      "Vatios": 120
+    },
+    {
+      "Id": 38,
+      "Nombre": "Abanico",
+      "Imagen": "abanico",
+      "Vatios": 69
     }
   ]
 }
