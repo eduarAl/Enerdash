@@ -71,7 +71,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         RecyclerView rvPoints = findViewById(R.id.rvCatalogo);
         mElectrosAdapter = new ElectroAdapter(mModelList, this);
         rvPoints.setAdapter(mElectrosAdapter);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getBaseContext(), 3);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getBaseContext(), 2);
         rvPoints.setLayoutManager(layoutManager);
         rvPoints.setHasFixedSize(true);
     }
