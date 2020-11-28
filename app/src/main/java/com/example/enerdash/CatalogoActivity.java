@@ -3,6 +3,7 @@ package com.example.enerdash;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -60,13 +61,17 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         }
         rootView = findViewById(R.id.ly_List);
         setupApplianceListView();
+
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(getString(R.string.titulo_catalogo));
+        }
     }
 
     private void setupApplianceListView() {
         RecyclerView rvPoints = findViewById(R.id.rvCatalogo);
         mElectrosAdapter = new ElectroAdapter(mModelList, this);
         rvPoints.setAdapter(mElectrosAdapter);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getBaseContext(),2);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getBaseContext(), 3);
         rvPoints.setLayoutManager(layoutManager);
         rvPoints.setHasFixedSize(true);
     }
