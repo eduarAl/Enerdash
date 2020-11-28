@@ -18,9 +18,12 @@
     <dimen name="LetsStar_text">40sp</dimen>
     <dimen name="girl_w">350dp</dimen>
     <dimen name="girl_h">500dp</dimen>
-    <dimen name="margin_rv">10dp</dimen>
     <dimen name="desc_text">15sp</dimen>
     <dimen name="margin_Top">40dp</dimen>
     <dimen name="margin_Horizontal">50dp</dimen>
     <dimen name="desc_w">300dp</dimen>
+    <dimen name="margin_VC">30dp</dimen>
+    <dimen name="recyclerview_height">300dp</dimen>
+    <dimen name="margin_vertical_min">10dp</dimen>
+    <dimen name="space_between_ed_and_button">60dp</dimen>
 </resources>

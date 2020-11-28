@@ -17,23 +17,22 @@
 
         <ImageView
             android:id="@+id/iv_NameImg"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:contentDescription="@string/descripcion_Img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/hornomicro" />
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
             android:orientation="vertical"
             android:background="@color/primary_dark">
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceHeadline6"
                 tools:text="@string/elec_microondas"
                 android:textColor="@color/primary_text"
                 android:layout_marginLeft="10dp" />

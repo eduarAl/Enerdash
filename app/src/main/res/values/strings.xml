@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Enerdash</string>
+    <string name="titulo_catalogo">Registrar Consumo</string>
     <string name="informe_Consumo">Informe de Consumo</string>
     <string name="elec_vent">Ventilador de pie.</string>
     <string name="elec_refri">Refrigerador.</string>
@@ -21,4 +22,8 @@
     <string name="pregunta_retótica_desc">¿Cansado de los altos costos que refleja tu factura eléctrica?</string>
     <string name="desc">¡No te preocupés más! Enerdash será tu fiel compañero para conocer y administrar el consumo energético de todos tus aparatos electrónicos. Todo de manera sencilla, rápida, intuituva y práctica. ¿Empezamos?</string>
     <string name="btn_empezar">¡Empezar!</string>
+    <string name="buscar_electro">Buscar electrodoméstico</string>
+    <string name="ingrese_tiempo">Ingrese el tiempo que ha utilizado el electrodoméstico</string>
+    <string name="hint_minutos">Minutos</string>
+    <string name="btn_calcular">Calcular</string>
 </resources>
