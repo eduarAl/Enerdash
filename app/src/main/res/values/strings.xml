@@ -26,4 +26,6 @@
     <string name="ingrese_tiempo">Ingrese el tiempo que ha utilizado el electrodoméstico</string>
     <string name="hint_minutos">Minutos</string>
     <string name="btn_calcular">Calcular</string>
+    <string name="text_Ok">Ok</string>
+    <string name="consumido">Has consumido 2 horas</string>
 </resources>

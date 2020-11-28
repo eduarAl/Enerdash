@@ -23,4 +23,13 @@
         <item name="android:textColor">@color/primary_text</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+
+    <style name="Dialog.FullScreen" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:padding">8dp</item>
+        <item name="android:windowBackground">@color/White</item>
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+        <item name="colorPrimary">@color/primary</item>
+    </style>
 </resources>

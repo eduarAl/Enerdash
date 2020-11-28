@@ -1,6 +1,7 @@
 package com.example.enerdash;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
@@ -12,6 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.enerdash.Adapters.ElectroAdapter;
@@ -32,6 +34,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private List<ElectroModel> mModelList;
     private ElectroAdapter mElectrosAdapter;
     private ViewGroup rootView;
+    private Button btnCalcular;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
             return;
         }
         rootView = findViewById(R.id.ly_List);
+        btnCalcular = findViewById(R.id.btn_acces);
         setupApplianceListView();
 
         if(getSupportActionBar() != null){
@@ -92,6 +96,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     @Override
     public void onItemTap(View view, int position) {
         showMessageWithSelectedItem(position);
+        navegation(position);
     }
 
     private void showMessageWithSelectedItem(int position) {
@@ -111,5 +116,27 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                 ),
                 Snackbar.LENGTH_LONG
         ).show();
+    }
+
+    private void navegation(int position) {
+/*
+        if(mModelList.get(position) ==null)
+        {
+            Log.e(TAG, "invalid mModelList");
+            Snackbar.make(rootView, String.format(Locale.getDefault(),
+                    "Debes seleccionar un electrodomestico"
+            ), Snackbar.LENGTH_LONG).show();
+            return;
+        }*/
+
+        final ElectroModel selectedItemModel = mModelList.get(position);
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager frgManager = getSupportFragmentManager();
+                ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
+                frg.show(frgManager, "frg_Vista_Result");
+            }
+        });
     }
 }
