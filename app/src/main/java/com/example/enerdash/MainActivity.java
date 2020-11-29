@@ -21,8 +21,6 @@ import java.security.InvalidParameterException;
 public class MainActivity extends AppCompatActivity {
     //Constantes
     private static final String TAG = MainActivity.class.getName();
-    public static final String EMAIL_KEY = "EMAIL";
-    public static final String PASSWORD_KEY = "PASSWORD";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setup() {
-        Button btn = findViewById(R.id.btn1);
+        Button btn = findViewById(R.id.fab_regCon);
         PieChart mPieChart = (PieChart) findViewById(R.id.piechart);
 
         mPieChart.addPieSlice(new PieModel("Freetime", 15, Color.parseColor("#FE6DA8")));
@@ -49,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void navigateToCatalogo() {
-
         Intent intent = new Intent(this, CatalogoActivity.class);
         startActivity(intent);
     }

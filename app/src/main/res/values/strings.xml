@@ -2,13 +2,7 @@
     <string name="app_name">Enerdash</string>
     <string name="titulo_catalogo">Registrar Consumo</string>
     <string name="informe_Consumo">Informe de Consumo</string>
-    <string name="elec_vent">Ventilador de pie.</string>
-    <string name="elec_refri">Refrigerador.</string>
-    <string name="elec_lavadora">Lavadora.</string>
-    <string name="elec_licuadora">Licuadora.</string>
-    <string name="elec_laptop">Laptop.</string>
     <string name="elec_microondas">Microondas.</string>
-    <string name="elec_equipo">Equipo de sonido.</string>
     <string name="descripcion_Img">MicroondasDes</string>
     <string name="logo">Logo de la App</string>
     <string name="empecemos">¡Empecemos!</string>
@@ -23,7 +17,11 @@
     <string name="desc">¡No te preocupés más! Enerdash será tu fiel compañero para conocer y administrar el consumo energético de todos tus aparatos electrónicos. Todo de manera sencilla, rápida, intuituva y práctica. ¿Empezamos?</string>
     <string name="btn_empezar">¡Empezar!</string>
     <string name="buscar_electro">Buscar electrodoméstico</string>
-    <string name="ingrese_tiempo">Ingrese el tiempo que ha utilizado el electrodoméstico</string>
+    <string name="ingrese_tiempo">Tiempo de uso del electrodoméstico:</string>
     <string name="hint_minutos">Minutos</string>
     <string name="btn_calcular">Calcular</string>
+    <string name="error_start_intent">Error al obtener el intento...</string>
+    <string name="top_consumo">Top Consumo</string>
+    <string name="top_precio">Top Precio</string>
+    <string name="fab_text">Registrar</string>
 </resources>
