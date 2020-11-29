@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,31 +8,67 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <org.eazegraph.lib.charts.PieChart
         android:id="@+id/piechart"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:padding="8dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¡Bienvenido!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="@dimen/btn_acceder_w"
-        android:layout_height="@dimen/btn_acceder_h"
-        android:text="Catálogo"
-        android:layout_marginTop="24dp"
-        style="@style/Buttons"
+        android:layout_width="@dimen/graphic"
+        android:layout_height="@dimen/graphic"
+        android:layout_marginTop="@dimen/margin_VC"
+        android:padding="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+
+    <Button
+        android:id="@+id/btn_topConsumo"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_btn_top"
+        android:text="@string/top_consumo"
+        android:textSize="@dimen/text_btn_top"
+        android:textColor="@color/primary_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/piechart"
+        app:layout_constraintStart_toEndOf="@id/btn_topPrecio"
         />
-</LinearLayout>
+
+    <Button
+        android:id="@+id/btn_topPrecio"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_btn_top"
+        android:text="@string/top_precio"
+        android:textSize="@dimen/text_btn_top"
+        android:textColor="@color/primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/piechart"
+        app:layout_constraintEnd_toStartOf="@id/btn_topConsumo"
+       />
+
+    <TextView
+        android:id="@+id/tops"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1.Cocina Eléctrica 500C$ (2H)"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_topPrecio"
+     />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab_regCon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fab_text"
+        android:layout_marginBottom="@dimen/fab_marginBottom"
+        android:layout_marginRight="@dimen/fab_marginRight"
+        app:icon="@drawable/ic_baseline_add"
+        app:backgroundTint="@color/accent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
