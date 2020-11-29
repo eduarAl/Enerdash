@@ -17,25 +17,27 @@
 
         <ImageView
             android:id="@+id/iv_NameImg"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/image_cardview_h"
             android:contentDescription="@string/descripcion_Img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/microondas" />
+            tools:src="@drawable/microondas"/>
 
         <RelativeLayout
-            android:layout_width="100dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/text_cardview_h"
             android:orientation="vertical"
             android:background="@color/primary_dark">
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/text_cardview_h"
                 tools:text="@string/elec_microondas"
+                android:gravity="center"
                 android:textColor="@color/primary_text"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                 />
         </RelativeLayout>
 
     </LinearLayout>

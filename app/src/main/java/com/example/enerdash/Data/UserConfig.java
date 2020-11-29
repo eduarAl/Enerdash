@@ -32,11 +32,6 @@ public class UserConfig {
     public boolean setIsFirstTime(Boolean value) {
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putBoolean(PREF_FIRST_TIME, value);
-        /*
-        apply() changes the in-memory SharedPreferences object immediately but writes the updates to disk asynchronously.
-        Alternatively, you can use commit() to write the data to disk synchronously. But because commit() is synchronous,
-        you should avoid calling it from your main thread because it could pause your UI rendering.
-        */
         prefsEditor.apply();
         return true;
     }

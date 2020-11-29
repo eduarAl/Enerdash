@@ -63,8 +63,6 @@ public class LogInActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         //la proxima activity ahora será la primera en el back stack
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra(MainActivity.EMAIL_KEY, user.getEmail());
-        intent.putExtra(MainActivity.PASSWORD_KEY, user.getPassword());
         startActivity(intent);
     }
 

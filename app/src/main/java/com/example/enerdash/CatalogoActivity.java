@@ -9,19 +9,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import android.widget.EditText;
+
 import android.widget.Toast;
 
 import com.example.enerdash.Adapters.ElectroAdapter;
 import com.example.enerdash.Data.ElectroRepository;
+import com.example.enerdash.Data.HistoryManager;
 import com.example.enerdash.Modelos.ElectroModel;
 import com.example.enerdash.helpers.Events.ItemTapListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -35,6 +42,9 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private ElectroAdapter mElectrosAdapter;
     private ViewGroup rootView;
     private Button btnCalcular;
+
+    TextInputLayout tilMinUso;
+    EditText etMinUso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,30 +62,34 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private void setup() {
         mElectroRepository = new ElectroRepository(getBaseContext());
         mModelList = new ArrayList<>();
-
-        Intent startIntent = getIntent();
-        if(startIntent == null) {
-            Toast.makeText(
-                    this,
-                    "Algo salió mal al obtener los datos :(",
-                    Toast.LENGTH_SHORT
-            ).show();
-            return;
-        }
         rootView = findViewById(R.id.ly_List);
+
         btnCalcular = findViewById(R.id.btn_acces);
+
         setupApplianceListView();
+        setupViewFromData();
 
         if(getSupportActionBar() != null){
             getSupportActionBar().setTitle(getString(R.string.titulo_catalogo));
         }
     }
 
+
+    private void getDataProvidedByUser(int id){
+        if(!validateFields()) {
+            return;
+        }
+        Intent intent = new Intent(this, HistoryManager.class);
+        intent.putExtra(HistoryManager.ID_KEY, id);
+        intent.putExtra(HistoryManager.TIME_KEY, etMinUso.getText().toString());
+        startActivity(intent);
+    }
+
     private void setupApplianceListView() {
         RecyclerView rvPoints = findViewById(R.id.rvCatalogo);
         mElectrosAdapter = new ElectroAdapter(mModelList, this);
         rvPoints.setAdapter(mElectrosAdapter);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getBaseContext(), 3);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getBaseContext(), 2);
         rvPoints.setLayoutManager(layoutManager);
         rvPoints.setHasFixedSize(true);
     }
@@ -86,7 +100,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
             return;
         }
         if(mElectroRepository == null) {
-            Log.e(TAG, "mPointsRepository no debería ser null");
+            Log.e(TAG, "mElectroRepository no debería ser null");
             return;
         }
         mModelList = mElectroRepository.getAll();
@@ -96,7 +110,27 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     @Override
     public void onItemTap(View view, int position) {
         showMessageWithSelectedItem(position);
+
         navegation(position);
+
+        getIdElectSelected(position);
+    }
+
+    private void getIdElectSelected(int position) {
+        ElectroModel selectedItemModel = mModelList.get(position);
+        final int idElec = selectedItemModel.getId();
+
+        tilMinUso = findViewById(R.id.til_minutosUso);
+        etMinUso = tilMinUso.getEditText();
+
+        Button btnCalcular = findViewById(R.id.btn_calcular);
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDataProvidedByUser(idElec);
+            }
+        });
+
     }
 
     private void showMessageWithSelectedItem(int position) {
@@ -117,6 +151,17 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                 Snackbar.LENGTH_LONG
         ).show();
     }
+  
+     private void setupViewFromData() {
+        Intent startIntent = getIntent();
+        if (startIntent == null) {
+            Toast.makeText(
+                    this,
+                    "Algo salió mal al obtener los datos :(",
+                    Toast.LENGTH_SHORT
+            ).show();
+            return;
+     }
 
     private void navegation(int position) {
 
@@ -128,7 +173,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
             ).show();
             return;
         }
-         else {
+        else {
                 final ElectroModel selectedItemModel = mModelList.get(position);
                 btnCalcular.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -139,5 +184,21 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                     }
                 });
              }
+    }
+
+    private boolean validateFields() {
+        if(etMinUso.getText() == null || TextUtils.isEmpty(etMinUso.getText().toString())) {
+            showMessage("Favor ingresa los minutos que se usó el electrodoméstico...");
+            return false;
+        }
+        return true;
+    }
+
+    private void showMessage(String message) {
+        Toast.makeText(
+                this,
+                message,
+                Toast.LENGTH_LONG
+        ).show();
     }
 }

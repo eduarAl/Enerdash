@@ -27,7 +27,6 @@ public class ElectroAdapter extends RecyclerView.Adapter<ElectroViewHolder> {
         mTapListener = tapListener;
     }
 
-
     public void updateList(List<ElectroModel> newList) {
         mModelList = newList;
         notifyDataSetChanged();
@@ -50,12 +49,10 @@ public class ElectroAdapter extends RecyclerView.Adapter<ElectroViewHolder> {
                 ElectroViewHelper.getResIdByImg(currentModel.getImagen())
         );
         holder.tvName.setText(currentModel.getNombre());
-
     }
 
     @Override
     public int getItemCount() {
         return mModelList.size();
     }
-
 }
