@@ -62,32 +62,19 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
 
         setupApplianceListView();
         setupViewFromData();
-        RegisterCon();
 
         if(getSupportActionBar() != null){
             getSupportActionBar().setTitle(getString(R.string.titulo_catalogo));
         }
     }
 
-    private void RegisterCon() {
-        tilMinUso = findViewById(R.id.til_minutosUso);
-        etMinUso = tilMinUso.getEditText();
 
-        Button btnCalcular = findViewById(R.id.btn_calcular);
-        btnCalcular.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getDataProvidedByUser();
-            }
-        });
-    }
-
-    private void getDataProvidedByUser(){
+    private void getDataProvidedByUser(int id){
         if(!validateFields()) {
             return;
         }
         Intent intent = new Intent(this, HistoryManager.class);
-        intent.putExtra(HistoryManager.ID_KEY, 2);
+        intent.putExtra(HistoryManager.ID_KEY, id);
         intent.putExtra(HistoryManager.TIME_KEY, etMinUso.getText().toString());
         startActivity(intent);
     }
@@ -120,10 +107,20 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         getIdElectSelected(position);
     }
 
-    private int getIdElectSelected(int position) {
+    private void getIdElectSelected(int position) {
         ElectroModel selectedItemModel = mModelList.get(position);
-        int idElec = selectedItemModel.getId();
-        return idElec;
+        final int idElec = selectedItemModel.getId();
+
+        tilMinUso = findViewById(R.id.til_minutosUso);
+        etMinUso = tilMinUso.getEditText();
+
+        Button btnCalcular = findViewById(R.id.btn_calcular);
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDataProvidedByUser(idElec);
+            }
+        });
     }
 
     private void showMessageWithSelectedItem(int position) {
@@ -162,7 +159,6 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
             showMessage("Favor ingresa los minutos que se usó el electrodoméstico...");
             return false;
         }
-        showMessage("¡Nice");
         return true;
     }
 
