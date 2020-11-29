@@ -33,5 +33,7 @@ public class HistoryManager extends AppCompatActivity {
         //Asignación de correspondencia con los datos pasados de la pantalla anterior con el Bundle
         String minUso = startIntent.getStringExtra(TIME_KEY);
         String idEl = startIntent.getStringExtra(ID_KEY);
+
+
     }
 }
