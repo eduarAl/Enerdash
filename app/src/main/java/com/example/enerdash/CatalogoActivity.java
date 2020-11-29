@@ -63,26 +63,22 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         mElectroRepository = new ElectroRepository(getBaseContext());
         mModelList = new ArrayList<>();
         rootView = findViewById(R.id.ly_List);
-
-        btnCalcular = findViewById(R.id.btn_acces);
+        btnCalcular = findViewById(R.id.btn_calcular);
 
         setupApplianceListView();
         setupViewFromData();
 
-        if(getSupportActionBar() != null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.titulo_catalogo));
         }
     }
 
 
-    private void getDataProvidedByUser(int id){
-        if(!validateFields()) {
-            return;
-        }
-        Intent intent = new Intent(this, HistoryManager.class);
-        intent.putExtra(HistoryManager.ID_KEY, id);
-        intent.putExtra(HistoryManager.TIME_KEY, etMinUso.getText().toString());
-        startActivity(intent);
+    private void getDataProvidedByUser(int id) {
+            Intent intent = new Intent(this, HistoryManager.class);
+            intent.putExtra(HistoryManager.ID_KEY, id);
+            intent.putExtra(HistoryManager.TIME_KEY, etMinUso.getText().toString());
+            startActivity(intent);
     }
 
     private void setupApplianceListView() {
@@ -95,11 +91,11 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     }
 
     private void loadData() {
-        if(!mModelList.isEmpty()) {
+        if (!mModelList.isEmpty()) {
             Log.d(TAG, "Ya existen valores en la lista");
             return;
         }
-        if(mElectroRepository == null) {
+        if (mElectroRepository == null) {
             Log.e(TAG, "mElectroRepository no debería ser null");
             return;
         }
@@ -110,35 +106,33 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     @Override
     public void onItemTap(View view, int position) {
         showMessageWithSelectedItem(position);
-
         navegation(position);
-
-        getIdElectSelected(position);
     }
 
-    private void getIdElectSelected(int position) {
-        ElectroModel selectedItemModel = mModelList.get(position);
-        final int idElec = selectedItemModel.getId();
+    private void navegation(int position) {
+            final ElectroModel selectedItemModel = mModelList.get(position);
+            final int idElec = selectedItemModel.getId();
 
-        tilMinUso = findViewById(R.id.til_minutosUso);
-        etMinUso = tilMinUso.getEditText();
-
-        Button btnCalcular = findViewById(R.id.btn_calcular);
-        btnCalcular.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getDataProvidedByUser(idElec);
-            }
-        });
-
+            tilMinUso = findViewById(R.id.til_minutosUso);
+            etMinUso = tilMinUso.getEditText();
+            btnCalcular.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    validate();
+                    //getDataProvidedByUser(idElec);
+                    FragmentManager frgManager = getSupportFragmentManager();
+                    ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
+                    frg.show(frgManager, "frg_Vista_Result");
+                }
+            });
     }
 
     private void showMessageWithSelectedItem(int position) {
-        if(mModelList == null) {
+        if (mModelList == null) {
             Log.e(TAG, "invalid mModelList");
             return;
         }
-        if(position > mModelList.size()) {
+        if (position > mModelList.size()) {
             Log.e(TAG, "invalid position");
             return;
         }
@@ -151,8 +145,8 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                 Snackbar.LENGTH_LONG
         ).show();
     }
-  
-     private void setupViewFromData() {
+
+    private void setupViewFromData() {
         Intent startIntent = getIntent();
         if (startIntent == null) {
             Toast.makeText(
@@ -161,40 +155,17 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                     Toast.LENGTH_SHORT
             ).show();
             return;
-     }
+        }
+    }
 
-    private void navegation(int position) {
-
-         if(mModelList == null) {
-            Toast.makeText(
-                    this,
-                    "Debe seleccionar un electrodomestico",
-                    Toast.LENGTH_SHORT
-            ).show();
+    private void validate() {
+        if (etMinUso.getText() == null || TextUtils.isEmpty(etMinUso.getText().toString())) {
+            showMessage("Favor ingresa los minutos que se usó el electrodoméstico...");
             return;
         }
-        else {
-                final ElectroModel selectedItemModel = mModelList.get(position);
-                btnCalcular.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        FragmentManager frgManager = getSupportFragmentManager();
-                        ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
-                        frg.show(frgManager, "frg_Vista_Result");
-                    }
-                });
-             }
     }
 
-    private boolean validateFields() {
-        if(etMinUso.getText() == null || TextUtils.isEmpty(etMinUso.getText().toString())) {
-            showMessage("Favor ingresa los minutos que se usó el electrodoméstico...");
-            return false;
-        }
-        return true;
-    }
-
-    private void showMessage(String message) {
+    private void showMessage (String message){
         Toast.makeText(
                 this,
                 message,

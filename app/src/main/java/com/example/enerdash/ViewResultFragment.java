@@ -1,5 +1,6 @@
 package com.example.enerdash;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.enerdash.Adapters.ElectroViewHelper;
+import com.example.enerdash.Data.HistoryManager;
 import com.example.enerdash.Modelos.ElectroModel;
 
 
@@ -80,6 +82,8 @@ public class ViewResultFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 dismiss();
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 

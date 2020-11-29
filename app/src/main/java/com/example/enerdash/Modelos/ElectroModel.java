@@ -10,11 +10,11 @@ public class ElectroModel implements Parcelable {
        private String Nombre;
        private String Imagen;
        private double Vatios;
-       private double TiempoConsumido;
+       private float TiempoConsumido;
        private double KwConsumido;
        private double Monto;
 
-    public ElectroModel(int id, String nombre, String imagen, double vatios, double tiempoConsumido, double kwConsumido, double monto) {
+    public ElectroModel(int id, String nombre, String imagen, double vatios, float tiempoConsumido, double kwConsumido, double monto) {
         Id = id;
         Nombre = nombre;
         Imagen = imagen;
@@ -56,11 +56,11 @@ public class ElectroModel implements Parcelable {
         Vatios = vatios;
     }
 
-    public double getTiempoConsumido() {
+    public float getTiempoConsumido() {
         return TiempoConsumido;
     }
 
-    public void setTiempoConsumido(double tiempoConsumido) {
+    public void setTiempoConsumido(float tiempoConsumido) {
         TiempoConsumido = tiempoConsumido;
     }
 
