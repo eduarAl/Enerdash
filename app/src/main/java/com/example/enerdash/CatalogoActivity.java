@@ -119,24 +119,25 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     }
 
     private void navegation(int position) {
-/*
-        if(mModelList.get(position) ==null)
-        {
-            Log.e(TAG, "invalid mModelList");
-            Snackbar.make(rootView, String.format(Locale.getDefault(),
-                    "Debes seleccionar un electrodomestico"
-            ), Snackbar.LENGTH_LONG).show();
-            return;
-        }*/
 
-        final ElectroModel selectedItemModel = mModelList.get(position);
-        btnCalcular.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager frgManager = getSupportFragmentManager();
-                ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
-                frg.show(frgManager, "frg_Vista_Result");
-            }
-        });
+         if(mModelList == null) {
+            Toast.makeText(
+                    this,
+                    "Debe seleccionar un electrodomestico",
+                    Toast.LENGTH_SHORT
+            ).show();
+            return;
+        }
+         else {
+                final ElectroModel selectedItemModel = mModelList.get(position);
+                btnCalcular.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FragmentManager frgManager = getSupportFragmentManager();
+                        ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
+                        frg.show(frgManager, "frg_Vista_Result");
+                    }
+                });
+             }
     }
 }
