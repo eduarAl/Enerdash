@@ -1,13 +1,18 @@
 package com.example.enerdash.Modelos;
 
-public class ElectroModel {
-    private int Id;
-    private String Nombre;
-    private String Imagen;
-    private double Vatios;
-    private double TiempoConsumido;
-    private double KwConsumido;
-    private double Monto;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.os.VibrationAttributes;
+
+public class ElectroModel implements Parcelable {
+
+       private int Id;
+       private String Nombre;
+       private String Imagen;
+       private double Vatios;
+       private double TiempoConsumido;
+       private double KwConsumido;
+       private double Monto;
 
     public ElectroModel(int id, String nombre, String imagen, double vatios, double tiempoConsumido, double kwConsumido, double monto) {
         Id = id;
@@ -74,4 +79,36 @@ public class ElectroModel {
     public void setMonto(double monto) {
         Monto = monto;
     }
+
+    protected ElectroModel(Parcel in) {
+        Id = in.readInt();
+        Nombre = in.readString();
+        Imagen = in.readString();
+        Vatios = in.readDouble();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(Id);
+        dest.writeString(Nombre);
+        dest.writeString(Imagen);
+        dest.writeDouble(Vatios);
+    }
+
+    public static final Parcelable.Creator<ElectroModel> CREATOR = new Parcelable.Creator<ElectroModel>() {
+        @Override
+        public ElectroModel createFromParcel(Parcel in) {
+            return new ElectroModel(in);
+        }
+
+        @Override
+        public ElectroModel[] newArray(int size) {
+            return new ElectroModel[size];
+        }
+    };
 }

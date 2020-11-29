@@ -20,6 +20,10 @@
     <string name="ingrese_tiempo">Tiempo de uso del electrodoméstico:</string>
     <string name="hint_minutos">Minutos</string>
     <string name="btn_calcular">Calcular</string>
+
+    <string name="text_Ok">Ok</string>
+    <string name="consumido">Has consumido 2 horas</string>
+
     <string name="error_start_intent">Error al obtener el intento...</string>
     <string name="top_consumo">Top Consumo</string>
     <string name="top_precio">Top Precio</string>

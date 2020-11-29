@@ -1,6 +1,7 @@
 package com.example.enerdash;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
@@ -14,7 +15,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
 import android.widget.EditText;
+
 import android.widget.Toast;
 
 import com.example.enerdash.Adapters.ElectroAdapter;
@@ -38,6 +41,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private List<ElectroModel> mModelList;
     private ElectroAdapter mElectrosAdapter;
     private ViewGroup rootView;
+    private Button btnCalcular;
 
     TextInputLayout tilMinUso;
     EditText etMinUso;
@@ -59,6 +63,8 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         mElectroRepository = new ElectroRepository(getBaseContext());
         mModelList = new ArrayList<>();
         rootView = findViewById(R.id.ly_List);
+
+        btnCalcular = findViewById(R.id.btn_acces);
 
         setupApplianceListView();
         setupViewFromData();
@@ -104,6 +110,9 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     @Override
     public void onItemTap(View view, int position) {
         showMessageWithSelectedItem(position);
+
+        navegation(position);
+
         getIdElectSelected(position);
     }
 
@@ -121,6 +130,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                 getDataProvidedByUser(idElec);
             }
         });
+
     }
 
     private void showMessageWithSelectedItem(int position) {
@@ -141,8 +151,8 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                 Snackbar.LENGTH_LONG
         ).show();
     }
-
-    private void setupViewFromData() {
+  
+     private void setupViewFromData() {
         Intent startIntent = getIntent();
         if (startIntent == null) {
             Toast.makeText(
@@ -151,7 +161,29 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                     Toast.LENGTH_SHORT
             ).show();
             return;
+     }
+
+    private void navegation(int position) {
+
+         if(mModelList == null) {
+            Toast.makeText(
+                    this,
+                    "Debe seleccionar un electrodomestico",
+                    Toast.LENGTH_SHORT
+            ).show();
+            return;
         }
+        else {
+                final ElectroModel selectedItemModel = mModelList.get(position);
+                btnCalcular.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FragmentManager frgManager = getSupportFragmentManager();
+                        ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
+                        frg.show(frgManager, "frg_Vista_Result");
+                    }
+                });
+             }
     }
 
     private boolean validateFields() {
