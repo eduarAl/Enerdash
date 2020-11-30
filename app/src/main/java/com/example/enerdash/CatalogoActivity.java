@@ -102,8 +102,8 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
 
     private void OnClickCalcular() {
         //final int idElec = selectedItemModel.getId();
-        //tilMinUso = findViewById(R.id.til_minutosUso);
-        //etMinUso = tilMinUso.getEditText();
+        tilMinUso = findViewById(R.id.til_minutosUso);
+        etMinUso = tilMinUso.getEditText();
         btnCalcular.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
