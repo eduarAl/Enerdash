@@ -39,6 +39,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private ElectroAdapter mElectrosAdapter;
     private ViewGroup rootView;
     private Button btnCalcular;
+    private ElectroModel x;
 
     TextInputLayout tilMinUso;
     EditText etMinUso;
@@ -64,6 +65,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
 
         setupApplianceListView();
         setupViewFromData();
+        navegation();
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.titulo_catalogo));
@@ -95,12 +97,11 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     @Override
     public void onItemTap(View view, int position) {
         showMessageWithSelectedItem(position);
-        navegation(position);
+        x = mModelList.get(position);
     }
 
-    private void navegation(int position) {
-        final ElectroModel selectedItemModel = mModelList.get(position);
-        final int idElec = selectedItemModel.getId();
+    private void navegation() {
+        //final int idElec = selectedItemModel.getId();
 
         tilMinUso = findViewById(R.id.til_minutosUso);
         etMinUso = tilMinUso.getEditText();
@@ -108,13 +109,21 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                @Override
                public void onClick(View v) {
                    validate();
-                   FragmentManager frgManager = getSupportFragmentManager();
-                   ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
-                   frg.show(frgManager, "frg_Vista_Result");
+                   x();
                }
         });
     }
 
+    private void x(){
+        if(x == null){
+            showMessage("Seleccione un electrodomestico");
+            return;
+        }
+
+        FragmentManager frgManager = getSupportFragmentManager();
+        ViewResultFragment frg = ViewResultFragment.newInstance(x);
+        frg.show(frgManager, "frg_Vista_Result");
+    }
     private void showMessageWithSelectedItem(int position) {
         if (mModelList == null) {
             Log.e(TAG, "invalid mModelList");
