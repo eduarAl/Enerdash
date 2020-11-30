@@ -83,6 +83,7 @@ public class ViewResultFragment extends DialogFragment {
             public void onClick(View v) {
                 dismiss();
                 Intent intent = new Intent(getContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });

@@ -10,12 +10,12 @@ public interface ElectroImgSource {
         public static final String MICROONDAS = "microondas";
         public static final String LAP = "laptop";
         public static final String LAVADORA = "lavadoraNegra";
-        public static final String  LICUADORA= "licuadora";
+        public static final String LICUADORA= "licuadora";
         public static final String REFRI = "refri";
         public static final String TV = "tv";
-        public static final String  CONSOLA = "ps3";
-        public static final String  SERCADOR = "secadora";
-        public static final String  PLANCHA = "plancha";
+        public static final String CONSOLA = "ps3";
+        public static final String SERCADOR = "secadora";
+        public static final String PLANCHA = "plancha";
         public static final String ESCRITORIO = "escritorio";
         public static final String IMP_FOT= "imp_fot";
         public static final String FOT = "fot";
@@ -44,8 +44,6 @@ public interface ElectroImgSource {
         public static final String HIELO = "maquina_hielo";
         public static final String ROCKONOLA = "rockonola";
         public static final String ABANICO = "abanico";
-
-
     }
 
     List<ElectroModel> getAll(int count);

@@ -3,13 +3,10 @@ package com.example.enerdash;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -73,14 +70,6 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         }
     }
 
-
-    private void getDataProvidedByUser(int id) {
-            Intent intent = new Intent(this, HistoryManager.class);
-            intent.putExtra(HistoryManager.ID_KEY, id);
-            intent.putExtra(HistoryManager.TIME_KEY, etMinUso.getText().toString());
-            startActivity(intent);
-    }
-
     private void setupApplianceListView() {
         RecyclerView rvPoints = findViewById(R.id.rvCatalogo);
         mElectrosAdapter = new ElectroAdapter(mModelList, this);
@@ -110,21 +99,20 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     }
 
     private void navegation(int position) {
-            final ElectroModel selectedItemModel = mModelList.get(position);
-            final int idElec = selectedItemModel.getId();
+        final ElectroModel selectedItemModel = mModelList.get(position);
+        final int idElec = selectedItemModel.getId();
 
-            tilMinUso = findViewById(R.id.til_minutosUso);
-            etMinUso = tilMinUso.getEditText();
-            btnCalcular.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    validate();
-                    //getDataProvidedByUser(idElec);
-                    FragmentManager frgManager = getSupportFragmentManager();
-                    ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
-                    frg.show(frgManager, "frg_Vista_Result");
-                }
-            });
+        tilMinUso = findViewById(R.id.til_minutosUso);
+        etMinUso = tilMinUso.getEditText();
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   validate();
+                   FragmentManager frgManager = getSupportFragmentManager();
+                   ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
+                   frg.show(frgManager, "frg_Vista_Result");
+               }
+        });
     }
 
     private void showMessageWithSelectedItem(int position) {

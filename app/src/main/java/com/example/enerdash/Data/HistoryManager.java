@@ -14,52 +14,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.enerdash.BuildConfig;
 import com.example.enerdash.CatalogoActivity;
 import com.example.enerdash.Modelos.ElectroModel;
+import com.example.enerdash.Modelos.HistoryItemModel;
 import com.example.enerdash.R;
+import com.google.gson.Gson;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 import java.util.UUID;
 
-public class HistoryManager extends AppCompatActivity {
+public class HistoryManager {
     private static final String HISTORY_PREF_NAME = "History_prefs";
-    public static final String ID_KEY = "ID";
-    public static final String TIME_KEY = "TIME";
-    public static final String PREF_ELECT_ID = "elect_id";
-    public static final String PREF_ELECT_TIEMPO = "elect_tiempo";
-
     private final SharedPreferences prefHistorial;
-    ElectroModel electroModel;
 
     public HistoryManager(@NonNull Context context) {
         prefHistorial = context.getSharedPreferences(getPrefsName(), Context.MODE_PRIVATE);
     }
 
-    public boolean setElect(@Nullable ElectroModel electrodomestico){
-        if(electrodomestico == null) return false;
-        if(electrodomestico.getId() == 0 || electrodomestico.getTiempoConsumido() <= 0)
-            return false;
+    public void agregar(int idElec, float tiempoConsumo){
+        String guid = getRandomID().toString();
+        SharedPreferences.Editor editor = prefHistorial.edit();
+        Gson parser = new Gson();
+        HistoryItemModel historyItem = new HistoryItemModel(idElec, tiempoConsumo);
 
-        SharedPreferences.Editor prefsEditor = prefHistorial.edit();
-        prefsEditor.putInt(PREF_ELECT_ID, electrodomestico.getId());
-        prefsEditor.putFloat(PREF_ELECT_TIEMPO, electrodomestico.getTiempoConsumido());
-        prefsEditor.apply();
-        return true;
+        String electProvided = parser.toJson(historyItem); // Serializa el objeto historyItem como un Json (representación), y lo guarda en una variabe String.
+        editor.putString(guid, electProvided);
+        editor.apply();
     }
 
-    private void setUp() {
-        Intent startIntent = getIntent(); //retorna la intencion que ha empezado la actividad
-        if(startIntent == null){
-            Toast.makeText(
-                    this,
-                    R.string.error_start_intent,
-                    Toast.LENGTH_SHORT
-            ).show();
-            return;
-        }
-
-        //Asignación de correspondencia con los datos pasados de la pantalla anterior con el Bundle
-        String minUso = startIntent.getStringExtra(TIME_KEY);
-        String idEl = startIntent.getStringExtra(ID_KEY);
-    }
+    /*public void obtenerTodo(){
+        String all = prefHistorial.getAll();
+    }*/
 
     private UUID getRandomID(){
         UUID randomID = UUID.randomUUID();
