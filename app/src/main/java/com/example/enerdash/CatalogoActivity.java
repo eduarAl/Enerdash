@@ -39,6 +39,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private ElectroAdapter mElectrosAdapter;
     private ViewGroup rootView;
     private Button btnCalcular;
+    private ElectroModel ElectroModel;
 
     TextInputLayout tilMinUso;
     EditText etMinUso;
@@ -64,6 +65,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
 
         setupApplianceListView();
         setupViewFromData();
+        OnClickCalcular();
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.titulo_catalogo));
@@ -95,24 +97,33 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     @Override
     public void onItemTap(View view, int position) {
         showMessageWithSelectedItem(position);
-        navegation(position);
+        ElectroModel = mModelList.get(position);
     }
 
-    private void navegation(int position) {
-        final ElectroModel selectedItemModel = mModelList.get(position);
-        final int idElec = selectedItemModel.getId();
-
+    private void OnClickCalcular() {
+        //final int idElec = selectedItemModel.getId();
         tilMinUso = findViewById(R.id.til_minutosUso);
         etMinUso = tilMinUso.getEditText();
         btnCalcular.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   validate();
-                   FragmentManager frgManager = getSupportFragmentManager();
-                   ViewResultFragment frg = ViewResultFragment.newInstance(selectedItemModel);
-                   frg.show(frgManager, "frg_Vista_Result");
-               }
+            @Override
+            public void onClick(View v) {
+                navegationFragment();
+            }
         });
+    }
+
+    private void navegationFragment(){
+        if(ElectroModel == null){
+            showMessage("Seleccione un electrodomestico");
+            return;
+        }
+        if (etMinUso.getText() == null || TextUtils.isEmpty(etMinUso.getText().toString())) {
+            showMessage("Favor ingresa los minutos que se usó el electrodoméstico...");
+            return;
+        }
+        FragmentManager frgManager = getSupportFragmentManager();
+        ViewResultFragment frg = ViewResultFragment.newInstance(ElectroModel);
+        frg.show(frgManager, "frg_Vista_Result");
     }
 
     private void showMessageWithSelectedItem(int position) {
@@ -142,13 +153,6 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                     "Algo salió mal al obtener los datos :(",
                     Toast.LENGTH_SHORT
             ).show();
-            return;
-        }
-    }
-
-    private void validate() {
-        if (etMinUso.getText() == null || TextUtils.isEmpty(etMinUso.getText().toString())) {
-            showMessage("Favor ingresa los minutos que se usó el electrodoméstico...");
             return;
         }
     }
