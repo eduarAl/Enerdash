@@ -21,6 +21,8 @@ import com.example.enerdash.Adapters.ElectroAdapter;
 import com.example.enerdash.Data.ElectroRepository;
 import com.example.enerdash.Data.HistoryManager;
 import com.example.enerdash.Modelos.ElectroModel;
+import com.example.enerdash.Modelos.HistoryItemModel;
+import com.example.enerdash.Modelos.UserModel;
 import com.example.enerdash.helpers.Events.ItemTapListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -39,10 +41,12 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private ElectroAdapter mElectrosAdapter;
     private ViewGroup rootView;
     private Button btnCalcular;
-    private ElectroModel ElectroModel;
+    private ElectroModel posicionElectro;
+    int idElectro;
 
     TextInputLayout tilMinUso;
     EditText etMinUso;
+    HistoryItemModel historic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,16 +64,25 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private void setup() {
         mElectroRepository = new ElectroRepository(getBaseContext());
         mModelList = new ArrayList<>();
+
         rootView = findViewById(R.id.ly_List);
+        tilMinUso = findViewById(R.id.til_minutosUso);
+        etMinUso = tilMinUso.getEditText();
         btnCalcular = findViewById(R.id.btn_calcular);
 
         setupApplianceListView();
         setupViewFromData();
-        OnClickCalcular();
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.titulo_catalogo));
         }
+
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculate();
+            }
+        });
     }
 
     private void setupApplianceListView() {
@@ -97,33 +110,29 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     @Override
     public void onItemTap(View view, int position) {
         showMessageWithSelectedItem(position);
-        ElectroModel = mModelList.get(position);
+        posicionElectro = mModelList.get(position);
+        idElectro = posicionElectro.getId();
     }
 
-    private void OnClickCalcular() {
-        //final int idElec = selectedItemModel.getId();
-        tilMinUso = findViewById(R.id.til_minutosUso);
-        etMinUso = tilMinUso.getEditText();
-        btnCalcular.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navegationFragment();
-            }
-        });
+    private void calculate(){
+        if(!validateFields()) {
+            return;
+        }
+
+        historic = new HistoryItemModel(idElectro, Float.valueOf(etMinUso.getText().toString()));
+        saveHistoryItem(historic);
+        navigateToFragment();
     }
 
-    private void navegationFragment(){
-        if(ElectroModel == null){
-            showMessage("Seleccione un electrodomestico");
-            return;
-        }
-        if (etMinUso.getText() == null || TextUtils.isEmpty(etMinUso.getText().toString())) {
-            showMessage("Favor ingresa los minutos que se usó el electrodoméstico...");
-            return;
-        }
+    private void navigateToFragment(){
         FragmentManager frgManager = getSupportFragmentManager();
-        ViewResultFragment frg = ViewResultFragment.newInstance(ElectroModel);
+        ViewResultFragment frg = ViewResultFragment.newInstance(posicionElectro);
         frg.show(frgManager, "frg_Vista_Result");
+    }
+
+    private void saveHistoryItem(HistoryItemModel historyItem){
+        HistoryManager register = new HistoryManager(getApplicationContext());
+        register.addHistoryItem(historyItem);
     }
 
     private void showMessageWithSelectedItem(int position) {
@@ -155,6 +164,19 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
             ).show();
             return;
         }
+    }
+
+    private boolean validateFields() {
+        if(posicionElectro == null){
+            showMessage("Favor seleccione un electrodoméstico.");
+            return false;
+        }
+        if (etMinUso.getText() == null || TextUtils.isEmpty(etMinUso.getText().toString())) {
+            showMessage("Favor ingresa los minutos que se usó el electrodoméstico.");
+            return false;
+        }
+        showMessage("¡Electrodoméstico ingresado correctamente!");
+        return true;
     }
 
     private void showMessage (String message){

@@ -38,7 +38,7 @@ public class ViewResultFragment extends DialogFragment {
     public static ViewResultFragment newInstance(ElectroModel model) {
         ViewResultFragment fragment = new ViewResultFragment();
         Bundle args = new Bundle();
-        args.putParcelable(ARG_ELECTRO,model);
+        args.putParcelable(ARG_ELECTRO, model);
         fragment.setArguments(args);
         fragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.Dialog_FullScreen);
         return fragment;

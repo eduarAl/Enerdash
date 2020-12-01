@@ -51,7 +51,7 @@ public class LogInActivity extends AppCompatActivity {
         }
         userModel = new UserModel(etEmail.getText().toString(), etPw.getText().toString());
         saveUser(userModel);
-        navigateToMain(userModel);
+        navigateToMain();
     }
 
     private void saveUser(UserModel user) {
@@ -59,7 +59,7 @@ public class LogInActivity extends AppCompatActivity {
         userConfig.setUser(user);
     }
 
-    private void navigateToMain(UserModel user) {
+    private void navigateToMain() {
         Intent intent = new Intent(this, MainActivity.class);
         //la proxima activity ahora será la primera en el back stack
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

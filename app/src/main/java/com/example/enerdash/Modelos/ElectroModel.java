@@ -5,23 +5,16 @@ import android.os.Parcelable;
 import android.os.VibrationAttributes;
 
 public class ElectroModel implements Parcelable {
+    private int Id;
+    private String Nombre;
+    private String Imagen;
+    private double Vatios;
 
-       private int Id;
-       private String Nombre;
-       private String Imagen;
-       private double Vatios;
-       private float TiempoConsumido;
-       private double KwConsumido;
-       private double Monto;
-
-    public ElectroModel(int id, String nombre, String imagen, double vatios, float tiempoConsumido, double kwConsumido, double monto) {
+    public ElectroModel(int id, String nombre, String imagen, double vatios) {
         Id = id;
         Nombre = nombre;
         Imagen = imagen;
         Vatios = vatios;
-        TiempoConsumido = tiempoConsumido;
-        KwConsumido = kwConsumido;
-        Monto = monto;
     }
 
     public int getId() {
@@ -54,30 +47,6 @@ public class ElectroModel implements Parcelable {
 
     public void setVatios(double vatios) {
         Vatios = vatios;
-    }
-
-    public float getTiempoConsumido() {
-        return TiempoConsumido;
-    }
-
-    public void setTiempoConsumido(float tiempoConsumido) {
-        TiempoConsumido = tiempoConsumido;
-    }
-
-    public double getKwConsumido() {
-        return KwConsumido;
-    }
-
-    public void setKwConsumido(double kwConsumido) {
-        KwConsumido = kwConsumido;
-    }
-
-    public double getMonto() {
-        return Monto;
-    }
-
-    public void setMonto(double monto) {
-        Monto = monto;
     }
 
     protected ElectroModel(Parcel in) {

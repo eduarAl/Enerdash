@@ -21,6 +21,7 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
+import java.util.Map;
 import java.util.UUID;
 
 public class HistoryManager {
@@ -31,20 +32,25 @@ public class HistoryManager {
         prefHistorial = context.getSharedPreferences(getPrefsName(), Context.MODE_PRIVATE);
     }
 
-    public void agregar(int idElec, float tiempoConsumo){
+    public boolean addHistoryItem(HistoryItemModel historyItem){
+        if(historyItem == null) return false;
+        if(TextUtils.isEmpty(String.valueOf(historyItem.getId()))) return false;
+        if(TextUtils.isEmpty(String.valueOf(historyItem.getTiempo()))) return false;
+
         String guid = getRandomID().toString();
         SharedPreferences.Editor editor = prefHistorial.edit();
         Gson parser = new Gson();
-        HistoryItemModel historyItem = new HistoryItemModel(idElec, tiempoConsumo);
 
         String electProvided = parser.toJson(historyItem); // Serializa el objeto historyItem como un Json (representación), y lo guarda en una variabe String.
         editor.putString(guid, electProvided);
         editor.apply();
+        return true;
     }
 
-    /*public void obtenerTodo(){
-        String all = prefHistorial.getAll();
-    }*/
+    public Map obtenerTodo(){
+        Map<String, ?> all = prefHistorial.getAll();
+        return all;
+    }
 
     private UUID getRandomID(){
         UUID randomID = UUID.randomUUID();
