@@ -9,36 +9,26 @@
     android:layout_height="match_parent"
     tools:context=".CatalogoActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_buscar"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/sv_buscar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_VC"
-        android:layout_marginBottom="@dimen/margin_VC"
         android:layout_marginHorizontal="@dimen/margin_VC"
-        android:hint="@string/buscar_electro"
-        app:startIconDrawable="@drawable/ic_baseline_search"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:iconifiedByDefault="false"
+        app:queryHint="@string/buscar_electro"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/rvCatalogo">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lines="1"
-        android:inputType="text"
         />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCatalogo"
         android:layout_width="0dp"
         android:layout_height="@dimen/recyclerview_height"
-        android:layout_marginTop="@dimen/margin_VC"
+        android:layout_marginTop="@dimen/recyclerview_matgin_top"
         android:layout_marginHorizontal="@dimen/margin_VC"
-        app:layout_constraintTop_toTopOf="@id/til_buscar"
+        app:layout_constraintTop_toTopOf="@id/sv_buscar"
         app:layout_constraintBottom_toTopOf="@id/ingreso_consumo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
