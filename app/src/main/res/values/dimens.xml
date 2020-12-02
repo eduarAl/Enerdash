@@ -6,9 +6,9 @@
     <dimen name="btn_empezar_h">40dp</dimen>
     <dimen name="img_electro_w">70dp</dimen>
     <dimen name="img_electro_h">40dp</dimen>
-    <dimen name="logo">350dp</dimen>
+    <dimen name="logo">280dp</dimen>
     <dimen name="graphic">350dp</dimen>
-    <dimen name="margin_Top">40dp</dimen>
+    <dimen name="margin_Top">20dp</dimen>
     <dimen name="margin_Horizontal">50dp</dimen>
     <dimen name="margin_VC">30dp</dimen>
     <dimen name="recyclerview_height">330dp</dimen>
@@ -21,6 +21,7 @@
     <dimen name="fab_marginBottom">30dp</dimen>
     <dimen name="fab_marginRight">20dp</dimen>
     <dimen name="LetsStar_text">40sp</dimen>
-    <dimen name="desc_text">15sp</dimen>
+    <dimen name="desc_text">18sp</dimen>
     <dimen name="text_btn_top">20sp</dimen>
+    <dimen name="recyclerview_matgin_top">70dp</dimen>
 </resources>

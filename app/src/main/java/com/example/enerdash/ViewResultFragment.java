@@ -19,12 +19,6 @@ import com.example.enerdash.Adapters.ElectroViewHelper;
 import com.example.enerdash.Data.HistoryManager;
 import com.example.enerdash.Modelos.ElectroModel;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ViewResultFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ViewResultFragment extends DialogFragment {
 
     private static final String ARG_ELECTRO = "electro";
@@ -33,7 +27,6 @@ public class ViewResultFragment extends DialogFragment {
     public ViewResultFragment() {
         // Required empty public constructor
     }
-
 
     public static ViewResultFragment newInstance(ElectroModel model) {
         ViewResultFragment fragment = new ViewResultFragment();

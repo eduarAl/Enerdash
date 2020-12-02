@@ -1,6 +1,7 @@
 package com.example.enerdash;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class CatalogoActivity extends AppCompatActivity implements ItemTapListener {
+public class CatalogoActivity extends AppCompatActivity implements ItemTapListener, SearchView.OnQueryTextListener {
 
     private static final String TAG = MainActivity.class.getName();
 
@@ -40,13 +41,14 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private List<ElectroModel> mModelList;
     private ElectroAdapter mElectrosAdapter;
     private ViewGroup rootView;
-    private Button btnCalcular;
     private ElectroModel posicionElectro;
-    int idElectro;
+    private Button btnCalcular;
+    private SearchView svSearch;
 
     TextInputLayout tilMinUso;
     EditText etMinUso;
     HistoryItemModel historic;
+    int idElectro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +69,13 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
 
         rootView = findViewById(R.id.ly_List);
         tilMinUso = findViewById(R.id.til_minutosUso);
+        svSearch = findViewById(R.id.sv_buscar);
         etMinUso = tilMinUso.getEditText();
         btnCalcular = findViewById(R.id.btn_calcular);
 
         setupApplianceListView();
         setupViewFromData();
+        initListener();
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.titulo_catalogo));
@@ -185,5 +189,21 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
                 message,
                 Toast.LENGTH_LONG
         ).show();
+    }
+
+    //Métodos para buscar electrodoméstico
+    private void initListener(){
+        svSearch.setOnQueryTextListener(this);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        mElectrosAdapter.filter(newText);
+        return false;
     }
 }
