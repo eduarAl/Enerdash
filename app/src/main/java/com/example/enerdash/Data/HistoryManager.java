@@ -1,25 +1,15 @@
 package com.example.enerdash.Data;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.enerdash.BuildConfig;
-import com.example.enerdash.CatalogoActivity;
-import com.example.enerdash.Modelos.ElectroModel;
 import com.example.enerdash.Modelos.HistoryItemModel;
-import com.example.enerdash.R;
 import com.google.gson.Gson;
 
-import org.jetbrains.annotations.NotNull;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
@@ -27,6 +17,7 @@ import java.util.UUID;
 public class HistoryManager {
     private static final String HISTORY_PREF_NAME = "History_prefs";
     private final SharedPreferences prefHistorial;
+    Gson parser;
 
     public HistoryManager(@NonNull Context context) {
         prefHistorial = context.getSharedPreferences(getPrefsName(), Context.MODE_PRIVATE);
@@ -39,7 +30,6 @@ public class HistoryManager {
 
         String guid = getRandomID().toString();
         SharedPreferences.Editor editor = prefHistorial.edit();
-        Gson parser = new Gson();
 
         String electProvided = parser.toJson(historyItem); // Serializa el objeto historyItem como un Json (representación), y lo guarda en una variabe String.
         editor.putString(guid, electProvided);
@@ -47,9 +37,19 @@ public class HistoryManager {
         return true;
     }
 
-    public Map obtenerTodo(){
-        Map<String, ?> all = prefHistorial.getAll();
-        return all;
+    public List<HistoryItemModel> obtenerTodo(){
+        Map<String, ?> itemsMap = prefHistorial.getAll();
+        List<HistoryItemModel> historyList = new ArrayList<>();
+        for (Object mapItem : itemsMap.values()){
+            if(mapItem instanceof String){
+                final HistoryItemModel itemModel = parser.fromJson(
+                        mapItem.toString(),
+                        HistoryItemModel.class
+                );
+                historyList.add(itemModel);
+            }
+        }
+        return historyList;
     }
 
     private UUID getRandomID(){

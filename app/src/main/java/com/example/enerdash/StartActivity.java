@@ -3,9 +3,7 @@ package com.example.enerdash;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
-
 import com.example.enerdash.Data.UserConfig;
 
 public class StartActivity extends Activity  {
