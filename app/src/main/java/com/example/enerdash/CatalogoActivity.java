@@ -134,8 +134,8 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         item = reportBuilder.calcularConsumoUnitario(posicionElectro, Float.valueOf(etMinUso.getText().toString()));
         saveItem(item);
         //listElec = reportBuilder.calcularConsumoGeneral(posicionElectro);
-        kw = "Has consumido " + item.getKwConsumidos();
-        monto = "Tu monto es de " + item.getMonto();
+        kw = "Has consumido " + item.getKwConsumidos() + " kWh/mes";
+        monto = "Tu monto a pagar es de " + item.getMonto() + " córdobas.";
 
         navigateToFragment(kw, monto);
     }

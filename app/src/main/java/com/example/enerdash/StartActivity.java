@@ -20,7 +20,7 @@ public class StartActivity extends Activity  {
             intent = new Intent(getBaseContext(), OnboardingActivity.class);
         } else {
             if (userConfig.userExists()) {
-                intent = new Intent(getBaseContext(), MainActivity.class);
+                intent = new Intent(getBaseContext(), CatalogoActivity.class);
             } else {
                 intent = new Intent(getBaseContext(), LogInActivity.class);
             }

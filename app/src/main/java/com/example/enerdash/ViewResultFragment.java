@@ -65,7 +65,9 @@ public class ViewResultFragment extends DialogFragment {
 
         TextView tvName = view.findViewById(R.id.tv_message);
         TextView tvMonto = view.findViewById(R.id.tv_gastado);
+        TextView tvConector = view.findViewById(R.id.tv_porTanto);
         ImageView IvImg = view.findViewById(R.id.iv_electro);
+
         TextView tvConsumido = view.findViewById(R.id.tv_consumido);
 
         tvName.setText(model.getNombre());
@@ -73,6 +75,7 @@ public class ViewResultFragment extends DialogFragment {
                 ElectroViewHelper.getResIdByImg(model.getImagen())
         );
         tvConsumido.setText(kw);
+        tvConector.setText(getString(R.string.conector));
         tvMonto.setText(monto);
 
         Button btnOk = view.findViewById(R.id.btn_ok);
@@ -80,7 +83,7 @@ public class ViewResultFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 dismiss();
-                Intent intent = new Intent(getContext(), MainActivity.class);
+                Intent intent = new Intent(getContext(), CatalogoActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
