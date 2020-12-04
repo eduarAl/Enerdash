@@ -8,9 +8,9 @@ public class ElectroModel implements Parcelable {
     private int Id;
     private String Nombre;
     private String Imagen;
-    private double Vatios;
+    private float Vatios;
 
-    public ElectroModel(int id, String nombre, String imagen, double vatios) {
+    public ElectroModel(int id, String nombre, String imagen, float vatios) {
         Id = id;
         Nombre = nombre;
         Imagen = imagen;
@@ -45,7 +45,7 @@ public class ElectroModel implements Parcelable {
         return Vatios;
     }
 
-    public void setVatios(double vatios) {
+    public void setVatios(float vatios) {
         Vatios = vatios;
     }
 
@@ -53,7 +53,7 @@ public class ElectroModel implements Parcelable {
         Id = in.readInt();
         Nombre = in.readString();
         Imagen = in.readString();
-        Vatios = in.readDouble();
+        Vatios = in.readFloat();
     }
 
     @Override
@@ -66,7 +66,7 @@ public class ElectroModel implements Parcelable {
         dest.writeInt(Id);
         dest.writeString(Nombre);
         dest.writeString(Imagen);
-        dest.writeDouble(Vatios);
+        dest.writeFloat(Vatios);
     }
 
     public static final Parcelable.Creator<ElectroModel> CREATOR = new Parcelable.Creator<ElectroModel>() {

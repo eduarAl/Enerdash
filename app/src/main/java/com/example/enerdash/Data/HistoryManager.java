@@ -30,6 +30,7 @@ public class HistoryManager {
 
         String guid = getRandomID().toString();
         SharedPreferences.Editor editor = prefHistorial.edit();
+        parser = new Gson();
 
         String electProvided = parser.toJson(historyItem); // Serializa el objeto historyItem como un Json (representación), y lo guarda en una variabe String.
         editor.putString(guid, electProvided);
@@ -37,17 +38,15 @@ public class HistoryManager {
         return true;
     }
 
-    public List<HistoryItemModel> obtenerTodo(){
+    public List<HistoryItemModel> getAll(){
         Map<String, ?> itemsMap = prefHistorial.getAll();
         List<HistoryItemModel> historyList = new ArrayList<>();
         for (Object mapItem : itemsMap.values()){
-            if(mapItem instanceof String){
                 final HistoryItemModel itemModel = parser.fromJson(
                         mapItem.toString(),
                         HistoryItemModel.class
                 );
                 historyList.add(itemModel);
-            }
         }
         return historyList;
     }
