@@ -27,7 +27,7 @@
         android:textStyle="bold"
         android:textSize="24sp"
         android:layout_marginBottom="20dp"
-        tools:text="@string/elec_lavadora"
+        tools:text="lavadora"
         />
 
     <TextView

@@ -21,14 +21,15 @@ import android.widget.Toast;
 import com.example.enerdash.Adapters.ElectroAdapter;
 import com.example.enerdash.Data.ElectroRepository;
 import com.example.enerdash.Data.HistoryManager;
+import com.example.enerdash.Data.ReportBuilder;
+import com.example.enerdash.Data.ReportManager;
 import com.example.enerdash.Modelos.ElectroModel;
 import com.example.enerdash.Modelos.HistoryItemModel;
-import com.example.enerdash.Modelos.UserModel;
+import com.example.enerdash.Modelos.ListItemModel;
 import com.example.enerdash.helpers.Events.ItemTapListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -49,6 +50,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     EditText etMinUso;
     HistoryItemModel historic;
     int idElectro;
+    ListItemModel item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,21 +124,34 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         if(!validateFields()) {
             return;
         }
+        ReportBuilder reportBuilder = new ReportBuilder();
+        String kw, monto;
+
 
         historic = new HistoryItemModel(idElectro, Float.valueOf(etMinUso.getText().toString()));
         saveHistoryItem(historic);
-        navigateToFragment();
+        item = reportBuilder.calcularConsumoUnitario(posicionElectro, Float.valueOf(etMinUso.getText().toString()));
+        saveItem(item);
+        kw = "Has consumido " + item.getKwConsumidos();
+        monto = "Tu monto es de " + item.getMonto();
+
+        navigateToFragment(kw, monto);
     }
 
-    private void navigateToFragment(){
+    private void navigateToFragment(String kw, String monto){
         FragmentManager frgManager = getSupportFragmentManager();
-        ViewResultFragment frg = ViewResultFragment.newInstance(posicionElectro);
+        ViewResultFragment frg = ViewResultFragment.newInstance(posicionElectro, kw, monto);
         frg.show(frgManager, "frg_Vista_Result");
     }
 
     private void saveHistoryItem(HistoryItemModel historyItem){
         HistoryManager register = new HistoryManager(getApplicationContext());
         register.addHistoryItem(historyItem);
+    }
+
+    private void saveItem(ListItemModel historyItem){
+        ReportManager reg= new ReportManager(getApplicationContext());
+        reg.addItem(historyItem);
     }
 
     private void showMessageWithSelectedItem(int position) {
