@@ -31,8 +31,8 @@ public class ViewResultFragment extends DialogFragment {
         ViewResultFragment fragment = new ViewResultFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_ELECTRO, model);
-        args.putString(ARG_ELECTRO, kw);
-        args.putString(ARG_ELECTRO, monto);
+        args.putString(ARG_KW, kw);
+        args.putString(ARG_MONTO, monto);
         fragment.setArguments(args);
         fragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.Dialog_FullScreen);
         return fragment;

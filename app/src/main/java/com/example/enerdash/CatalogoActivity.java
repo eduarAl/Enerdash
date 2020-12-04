@@ -51,6 +51,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     HistoryItemModel historic;
     int idElectro;
     ListItemModel item;
+    List<ListItemModel> listElec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +133,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         saveHistoryItem(historic);
         item = reportBuilder.calcularConsumoUnitario(posicionElectro, Float.valueOf(etMinUso.getText().toString()));
         saveItem(item);
+        //listElec = reportBuilder.calcularConsumoGeneral(posicionElectro);
         kw = "Has consumido " + item.getKwConsumidos();
         monto = "Tu monto es de " + item.getMonto();
 

@@ -37,7 +37,7 @@ public class ReportBuilder {
         return items;
     }
 
-    private List<ListItemModel> calcularConsumoGeneral(ElectroModel model) {
+    public List<ListItemModel> calcularConsumoGeneral(ElectroModel model) {
         float tiempo = 0, kwMes, monto;
 
         List<HistoryItemModel> lista = manager.getAll();
@@ -55,6 +55,4 @@ public class ReportBuilder {
         listItemModels.add(items);
         return listItemModels;
     }
-
-
 }
