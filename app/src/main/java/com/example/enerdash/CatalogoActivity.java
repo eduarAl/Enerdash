@@ -30,6 +30,7 @@ import com.example.enerdash.helpers.Events.ItemTapListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -134,8 +135,9 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         item = reportBuilder.calcularConsumoUnitario(posicionElectro, Float.valueOf(etMinUso.getText().toString()));
         saveItem(item);
         //listElec = reportBuilder.calcularConsumoGeneral(posicionElectro);
-        kw = "Has consumido " + item.getKwConsumidos() + " kWh/mes";
-        monto = "Tu monto a pagar es de " + item.getMonto() + " córdobas.";
+        DecimalFormat format = new DecimalFormat("0.00");
+        kw = "Has consumido " + format.format(item.getKwConsumidos()) + " kWh/mes";
+        monto = "Tu monto a pagar es de " + format.format(item.getMonto()) + " córdobas.";
 
         navigateToFragment(kw, monto);
     }
