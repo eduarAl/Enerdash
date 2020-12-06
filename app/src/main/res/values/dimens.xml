@@ -7,7 +7,7 @@
     <dimen name="img_electro_w">70dp</dimen>
     <dimen name="img_electro_h">40dp</dimen>
     <dimen name="logo">280dp</dimen>
-    <dimen name="graphic">350dp</dimen>
+    <dimen name="graphic">330dp</dimen>
     <dimen name="margin_Top">20dp</dimen>
     <dimen name="margin_Horizontal">50dp</dimen>
     <dimen name="margin_VC">30dp</dimen>
