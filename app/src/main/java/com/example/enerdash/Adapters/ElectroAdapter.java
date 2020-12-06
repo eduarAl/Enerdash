@@ -31,6 +31,9 @@ public class ElectroAdapter extends RecyclerView.Adapter<ElectroViewHolder> {
 
     public void updateList(List<ElectroModel> newList) {
         mModelList = newList;
+        originalModelList = new ArrayList<>(); //almacena el listado original, ya que mModelList cambia durante la búsqueda
+        originalModelList.addAll(newList);
+
         notifyDataSetChanged();
     }
 
@@ -58,13 +61,7 @@ public class ElectroAdapter extends RecyclerView.Adapter<ElectroViewHolder> {
         return mModelList.size();
     }
 
-    public void saveOriginalList(){
-        originalModelList = new ArrayList<>(); //almacena el listado original, ya que mModelList cambia durante la búsqueda
-        originalModelList.addAll(mModelList);
-    }
-
     public void filter(String consulta){
-       saveOriginalList();
 
         if(consulta.length() == 0){
             mModelList.clear();

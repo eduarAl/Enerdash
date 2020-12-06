@@ -20,8 +20,8 @@
     <dimen name="text_cardview_h">50dp</dimen>
     <dimen name="fab_marginBottom">30dp</dimen>
     <dimen name="fab_marginRight">20dp</dimen>
-    <dimen name="LetsStar_text">40sp</dimen>
-    <dimen name="desc_text">18sp</dimen>
+    <dimen name="LetsStar_text">33sp</dimen>
+    <dimen name="desc_text">16sp</dimen>
     <dimen name="text_btn_top">20sp</dimen>
     <dimen name="recyclerview_matgin_top">70dp</dimen>
 </resources>

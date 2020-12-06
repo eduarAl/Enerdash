@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import com.example.enerdash.BuildConfig;
 import com.example.enerdash.Modelos.ElectroModel;
 import com.example.enerdash.Modelos.HistoryItemModel;
+import com.example.enerdash.Modelos.ListItemGeneralModel;
 import com.example.enerdash.Modelos.ListItemModel;
 import com.google.gson.Gson;
 
@@ -20,9 +21,10 @@ public class ReportBuilder {
     private static final double CARGO = 3.1817;
 
     List<ListItemModel> listItemModels;
+    List<ListItemGeneralModel> listItemGeneralModels;
     //ReportManager manager;
-    HistoryManager manager;
     ListItemModel items;
+    ListItemGeneralModel generalItems;
 
 
     public ListItemModel calcularConsumoUnitario(ElectroModel model, float tiempo){
@@ -37,7 +39,8 @@ public class ReportBuilder {
         return items;
     }
 
-    public List<ListItemModel> calcularConsumoGeneral(ElectroModel model) {
+    public List<ListItemGeneralModel> calcularConsumoGeneral(ElectroModel model, Context context) {
+        HistoryManager manager = new HistoryManager(context);
         float tiempo = 0, kwMes, monto;
 
         List<HistoryItemModel> lista = manager.getAll();
@@ -51,8 +54,8 @@ public class ReportBuilder {
         kwMes = (float) ((model.getVatios() * conversion)/ 1000);
         monto = (float) (kwMes * CARGO);
 
-        items = new ListItemModel(model.getId(), model.getNombre(), kwMes, monto);
-        listItemModels.add(items);
-        return listItemModels;
+        generalItems = new ListItemGeneralModel(model.getId(), model.getNombre(), kwMes, monto);
+        listItemGeneralModels.add(generalItems);
+        return listItemGeneralModels;
     }
 }

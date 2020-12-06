@@ -25,6 +25,7 @@ import com.example.enerdash.Data.ReportBuilder;
 import com.example.enerdash.Data.ReportManager;
 import com.example.enerdash.Modelos.ElectroModel;
 import com.example.enerdash.Modelos.HistoryItemModel;
+import com.example.enerdash.Modelos.ListItemGeneralModel;
 import com.example.enerdash.Modelos.ListItemModel;
 import com.example.enerdash.helpers.Events.ItemTapListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -46,6 +47,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private ElectroModel posicionElectro;
     private Button btnCalcular;
     private SearchView svSearch;
+    private List<ListItemGeneralModel> itemGeneralModels;
 
     TextInputLayout tilMinUso;
     EditText etMinUso;
@@ -133,7 +135,7 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         historic = new HistoryItemModel(idElectro, Float.valueOf(etMinUso.getText().toString()));
         saveHistoryItem(historic);
         item = reportBuilder.calcularConsumoUnitario(posicionElectro, Float.valueOf(etMinUso.getText().toString()));
-        saveItem(item);
+        //itemGeneralModels = reportBuilder.calcularConsumoGeneral(posicionElectro, getApplicationContext());
         //listElec = reportBuilder.calcularConsumoGeneral(posicionElectro);
         DecimalFormat format = new DecimalFormat("0.00");
         kw = "Has consumido " + format.format(item.getKwConsumidos()) + " kWh/mes";
