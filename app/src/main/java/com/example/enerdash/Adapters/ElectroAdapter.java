@@ -62,7 +62,6 @@ public class ElectroAdapter extends RecyclerView.Adapter<ElectroViewHolder> {
     }
 
     public void filter(String consulta){
-
         if(consulta.length() == 0){
             mModelList.clear();
             mModelList.addAll(originalModelList);

@@ -3,6 +3,7 @@ package com.example.enerdash;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.enerdash.Adapters.ListItemGeneralAdapter;
+import com.example.enerdash.Data.ReportBuilder;
 import com.example.enerdash.Data.UserConfig;
 import com.example.enerdash.Modelos.ListItemGeneralModel;
 import com.example.enerdash.Modelos.ListItemModel;
@@ -41,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setup() {
         items = findViewById(R.id.LV_Main);
-        adapter = new ListItemGeneralAdapter(this, getAll());
+        ReportBuilder reportBuilder = new ReportBuilder();
+        listItem = reportBuilder.calcularConsumoGeneral(getApplicationContext());
+        adapter = new ListItemGeneralAdapter(this, listItem);
         items.setAdapter(adapter);
 
         Button btn = findViewById(R.id.fab_regCon);
@@ -62,9 +66,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+/*
     private ArrayList<ListItemGeneralModel> getAll(){
         ArrayList<ListItemGeneralModel> item = new ArrayList<>();
-        item.add(new ListItemGeneralModel(1,"Licuadora",90,90));
+        item.add(new ListItemGeneralModel(1,"Fotocopiadora e impresora",90,90));
         item.add(new ListItemGeneralModel(1,"Licuadora",90,90));
         item.add(new ListItemGeneralModel(1,"Licuadora",90,90));
         item.add(new ListItemGeneralModel(1,"Licuadora",90,90));
@@ -76,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         item.add(new ListItemGeneralModel(1,"Licuadora",90,90));
         return item;
     }
+*/
 
     private void navigateToCatalogo() {
         Intent intent = new Intent(this, CatalogoActivity.class);

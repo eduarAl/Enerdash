@@ -22,7 +22,6 @@ import com.example.enerdash.Adapters.ElectroAdapter;
 import com.example.enerdash.Data.ElectroRepository;
 import com.example.enerdash.Data.HistoryManager;
 import com.example.enerdash.Data.ReportBuilder;
-import com.example.enerdash.Data.ReportManager;
 import com.example.enerdash.Modelos.ElectroModel;
 import com.example.enerdash.Modelos.HistoryItemModel;
 import com.example.enerdash.Modelos.ListItemGeneralModel;
@@ -135,8 +134,6 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
         historic = new HistoryItemModel(idElectro, Float.valueOf(etMinUso.getText().toString()));
         saveHistoryItem(historic);
         item = reportBuilder.calcularConsumoUnitario(posicionElectro, Float.valueOf(etMinUso.getText().toString()));
-        //itemGeneralModels = reportBuilder.calcularConsumoGeneral(posicionElectro, getApplicationContext());
-        //listElec = reportBuilder.calcularConsumoGeneral(posicionElectro);
         DecimalFormat format = new DecimalFormat("0.00");
         kw = "Has consumido " + format.format(item.getKwConsumidos()) + " kWh/mes";
         monto = "Tu monto a pagar es de " + format.format(item.getMonto()) + " córdobas.";
@@ -153,11 +150,6 @@ public class CatalogoActivity extends AppCompatActivity implements ItemTapListen
     private void saveHistoryItem(HistoryItemModel historyItem){
         HistoryManager register = new HistoryManager(getApplicationContext());
         register.addHistoryItem(historyItem);
-    }
-
-    private void saveItem(ListItemModel historyItem){
-        ReportManager reg= new ReportManager(getApplicationContext());
-        reg.addItem(historyItem);
     }
 
     private void showMessageWithSelectedItem(int position) {

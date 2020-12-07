@@ -17,10 +17,11 @@ import java.util.UUID;
 public class HistoryManager {
     private static final String HISTORY_PREF_NAME = "History_prefs";
     private final SharedPreferences prefHistorial;
-    Gson parser;
+    private final Gson parser;
 
     public HistoryManager(@NonNull Context context) {
         prefHistorial = context.getSharedPreferences(getPrefsName(), Context.MODE_PRIVATE);
+        parser = new Gson();
     }
 
     public boolean addHistoryItem(HistoryItemModel historyItem){
@@ -30,7 +31,6 @@ public class HistoryManager {
 
         String guid = getRandomID().toString();
         SharedPreferences.Editor editor = prefHistorial.edit();
-        parser = new Gson();
 
         String electProvided = parser.toJson(historyItem); // Serializa el objeto historyItem como un Json (representación), y lo guarda en una variabe String.
         editor.putString(guid, electProvided);
